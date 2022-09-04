@@ -1,7 +1,8 @@
 import Container from "@mui/material/Container";
 import Main from "./pages/Main";
 import NavBar from "./components/NavBar";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { routes } from "./routes";
 
 export interface IdummyData {
   name: string;
@@ -35,6 +36,26 @@ export const dummyData = [
     surname: "Surname1",
     age: "34",
   },
+  {
+    name: "User1",
+    surname: "Surname1",
+    age: "34",
+  },
+  {
+    name: "User1",
+    surname: "Surname1",
+    age: "34",
+  },
+  {
+    name: "User1",
+    surname: "Surname1",
+    age: "34",
+  },
+  {
+    name: "User1",
+    surname: "Surname1",
+    age: "34",
+  },
 ];
 
 const App = () => {
@@ -43,14 +64,16 @@ const App = () => {
       fixed
       sx={{
         bgcolor: "#cfe8fc",
-        height: "100vh",
-        position: "relative",
+        minHeight: "100vh",
+        padding: 1,
       }}
     >
       <NavBar />
       <div style={{ marginTop: "75px" }}>
         <Routes>
-          <Route path="/" element={<Main lifters={dummyData} />} />
+          {routes.map(({ path, element }) => (
+            <Route path={path} element={element} key={path} />
+          ))}
         </Routes>
       </div>
     </Container>
