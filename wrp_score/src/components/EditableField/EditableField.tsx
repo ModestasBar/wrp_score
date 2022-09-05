@@ -17,7 +17,7 @@ const EditableField = () => {
   };
   const handleInputClick = () => {
     if (lockWeight) {
-      setReadyToLift(true);
+      setReadyToLift(!readyToLift);
     }
   };
 
