@@ -65,7 +65,8 @@ const App = () => {
       sx={{
         bgcolor: "#cfe8fc",
         minHeight: "100vh",
-        padding: 1,
+        p: { xs: 1, md: 2 },
+        position: "relative",
       }}
     >
       <NavBar />

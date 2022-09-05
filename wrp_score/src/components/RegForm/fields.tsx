@@ -23,7 +23,6 @@ export const registrationFields: TRegistrationField[] = [
   {
     name: Fields.Name,
     label: "First name",
-    type: "name",
     variant: "standard",
   },
   {

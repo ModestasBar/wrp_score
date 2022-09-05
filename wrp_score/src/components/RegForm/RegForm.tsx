@@ -36,7 +36,7 @@ const RegForm = () => {
                 )
               )}
             </Grid>
-            <Box textAlign="end">
+            <Box textAlign="end" sx={{ mt: 1 }}>
               <Button variant="contained" onClick={() => handleSubmit()}>
                 Register
               </Button>

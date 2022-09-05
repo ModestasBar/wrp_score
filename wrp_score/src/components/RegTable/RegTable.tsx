@@ -67,7 +67,7 @@ const rows = [
 const RegTable = () => {
   return (
     <TableContainer sx={{ mt: 2, overflowX: "initial" }}>
-      <Table stickyHeader aria-label="customized table">
+      <Table stickyHeader aria-label="customized table" size="small">
         <TableHead>
           <TableRow>
             <StyledTableCell align="left">Lifter</StyledTableCell>
