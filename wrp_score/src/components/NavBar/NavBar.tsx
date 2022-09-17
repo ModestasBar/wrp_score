@@ -1,44 +1,44 @@
-import * as React from 'react'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Divider from '@mui/material/Divider'
-import Drawer from '@mui/material/Drawer'
-import IconButton from '@mui/material/IconButton'
-import List from '@mui/material/List'
-import MenuIcon from '@mui/icons-material/Menu'
-import ListItem from '@mui/material/ListItem'
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemText from '@mui/material/ListItemText'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
-import { Link, useNavigate } from 'react-router-dom'
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import MenuIcon from '@mui/icons-material/Menu';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
 interface IProps {
   /**
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
    */
-  window?: () => Window
+  window?: () => Window;
 }
 
-const drawerWidth = 240
-const navItems = ['Home', 'Results']
+const drawerWidth = 240;
+const navItems = ['Home', 'Registration', 'Lifting'];
 
 const NavBar: React.FC<IProps> = (props) => {
-  const { window } = props
-  const [mobileOpen, setMobileOpen] = React.useState(false)
-  const navigation = useNavigate()
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const navigation = useNavigate();
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen)
-  }
+    setMobileOpen(!mobileOpen);
+  };
 
   const handleNavigation = (path: string) => {
-    const pathLowerCase = path.toLowerCase()
+    const pathLowerCase = path.toLowerCase();
 
-    navigation(`/${pathLowerCase !== 'home' ? pathLowerCase : ''}`)
-  }
+    navigation(`/${pathLowerCase !== 'home' ? pathLowerCase : ''}`);
+  };
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -59,10 +59,10 @@ const NavBar: React.FC<IProps> = (props) => {
         ))}
       </List>
     </Box>
-  )
+  );
 
   const container =
-    window !== undefined ? () => window().document.body : undefined
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -104,21 +104,21 @@ const NavBar: React.FC<IProps> = (props) => {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true // Better open performance on mobile.
+            keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
-              width: drawerWidth
-            }
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
         </Drawer>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
