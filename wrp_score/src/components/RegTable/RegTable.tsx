@@ -1,30 +1,30 @@
-import { styled } from "@mui/material/styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
+import { styled } from '@mui/material/styles'
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableCell, { tableCellClasses } from '@mui/material/TableCell'
+import TableContainer from '@mui/material/TableContainer'
+import TableHead from '@mui/material/TableHead'
+import TableRow from '@mui/material/TableRow'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    color: theme.palette.common.white
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
+    fontSize: 14
+  }
+}))
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.hover,
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover
   },
   // hide last border
-  "&:last-child td, &:last-child th": {
-    border: 0,
-  },
-}));
+  '&:last-child td, &:last-child th': {
+    border: 0
+  }
+}))
 
 // First name
 // Last name
@@ -33,40 +33,40 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 // Body weight
 // Class - automatically
 
-function createData(
+function createData (
   lifter: string,
   gender: string,
   birthYear: string,
   bodyWeight: number,
   assignedClass: string
 ) {
-  return { lifter, gender, birthYear, bodyWeight, assignedClass };
+  return { lifter, gender, birthYear, bodyWeight, assignedClass }
 }
 
 const rows = [
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-  createData("Frozen yoghurt", "Male", "27", 89, "LTU"),
-];
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU'),
+  createData('Frozen yoghurt', 'Male', '27', 89, 'LTU')
+]
 
-const RegTable = () => {
+const RegTable: React.FC = () => {
   return (
-    <TableContainer sx={{ mt: 2, overflowX: "initial" }}>
+    <TableContainer sx={{ mt: 2, overflowX: 'initial' }}>
       <Table stickyHeader aria-label="customized table" size="small">
         <TableHead>
           <TableRow>
@@ -94,7 +94,7 @@ const RegTable = () => {
         </TableBody>
       </Table>
     </TableContainer>
-  );
-};
+  )
+}
 
-export default RegTable;
+export default RegTable

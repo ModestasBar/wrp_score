@@ -1,6 +1,6 @@
-import { Grid } from "@mui/material";
-import { dummyData, IdummyData } from "../../App";
-import Lifter from "../../components/Lifter";
+import { Grid } from '@mui/material'
+import { dummyData, IdummyData } from '../../App'
+import Lifter from '../../components/Lifter'
 
 const Main = () => {
   return (
@@ -11,7 +11,7 @@ const Main = () => {
         </Grid>
       ))}
     </Grid>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main

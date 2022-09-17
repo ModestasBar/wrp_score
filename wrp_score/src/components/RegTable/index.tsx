@@ -1,1 +1,1 @@
-export { default } from "./RegTable";
+export { default } from './RegTable'

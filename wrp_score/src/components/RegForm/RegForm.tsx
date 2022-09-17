@@ -1,6 +1,6 @@
-import { Box, Button, Grid, TextField, MenuItem } from "@mui/material";
-import { Formik } from "formik";
-import { registrationFields } from "./fields";
+import { Box, Button, Grid, TextField, MenuItem } from '@mui/material'
+import { Formik } from 'formik'
+import { registrationFields } from './fields'
 
 // First name
 // Last name
@@ -9,7 +9,7 @@ import { registrationFields } from "./fields";
 // Body weight
 // Class - automatically
 
-const RegForm = () => {
+const RegForm: React.FC = () => {
   return (
     <>
       <Formik onSubmit={(values) => console.log(values)} initialValues={{}}>
@@ -22,10 +22,10 @@ const RegForm = () => {
                     <TextField
                       {...rest}
                       onChange={handleChange}
-                      InputProps={{ ...(inputProps || {}) }}
-                      sx={{ width: "100%" }}
+                      InputProps={{ ...(typeof inputProps === 'object' ? inputProps : {}) }}
+                      sx={{ width: '100%' }}
                     >
-                      {rest.select &&
+                      {Boolean(rest.select) &&
                         values.map(({ value, label }: any) => (
                           <MenuItem key={value} value={value}>
                             {label}
@@ -45,7 +45,7 @@ const RegForm = () => {
         )}
       </Formik>
     </>
-  );
-};
+  )
+}
 
-export default RegForm;
+export default RegForm

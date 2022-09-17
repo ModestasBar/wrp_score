@@ -1,1 +1,1 @@
-export { default } from "./Lifter";
+export { default } from './Lifter'

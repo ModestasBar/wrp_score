@@ -1,78 +1,78 @@
-import { Button, Grid, Input, TextField, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import { useState } from "react";
-import EditableField from "../../components/EditableField";
-import TextBox from "../../components/TextBox";
-import { styles } from "./Lifting.styles";
+import { Button, Grid, Input, TextField, Typography } from '@mui/material'
+import { Box } from '@mui/system'
+import { useState } from 'react'
+import EditableField from '../../components/EditableField'
+import TextBox from '../../components/TextBox'
+import { styles } from './Lifting.styles'
 
 const liftersMock = [
   {
-    name: "Modestas",
-    surname: "Baranauskas",
-    gender: "M",
+    name: 'Modestas',
+    surname: 'Baranauskas',
+    gender: 'M',
     bodyWeight: 70,
-    classCategory: "75",
+    classCategory: '75',
     s1: {
-      weight: "12",
-      status: false,
+      weight: '12',
+      status: false
     },
     s2: {
-      weight: "78",
-      status: false,
+      weight: '78',
+      status: false
     },
     s3: {
-      weight: "98",
-      status: false,
+      weight: '98',
+      status: false
     },
     total: 56,
     points: 45,
-    place: 1,
+    place: 1
   },
   {
-    name: "Modestas",
-    surname: "Baranauskas",
-    gender: "F",
+    name: 'Modestas',
+    surname: 'Baranauskas',
+    gender: 'F',
     bodyWeight: 70,
-    classCategory: "75",
+    classCategory: '75',
     s1: {
-      weight: "12",
-      status: false,
+      weight: '12',
+      status: false
     },
     s2: {
-      weight: "78",
-      status: false,
+      weight: '78',
+      status: false
     },
     s3: {
-      weight: "98",
-      status: false,
+      weight: '98',
+      status: false
     },
     total: 56,
     points: 45,
-    place: 1,
+    place: 1
   },
   {
-    name: "Modestas",
-    surname: "Baranauskas",
-    gender: "F",
+    name: 'Modestas',
+    surname: 'Baranauskas',
+    gender: 'F',
     bodyWeight: 85,
-    classCategory: "90",
+    classCategory: '90',
     s1: {
-      weight: "12",
-      status: false,
+      weight: '12',
+      status: false
     },
     s2: {
-      weight: "78",
-      status: false,
+      weight: '78',
+      status: false
     },
     s3: {
-      weight: "98",
-      status: false,
+      weight: '98',
+      status: false
     },
     total: 56,
     points: 45,
-    place: 1,
-  },
-];
+    place: 1
+  }
+]
 
 enum columId {
   Name,
@@ -89,60 +89,60 @@ enum columId {
 
 const gridColumn = [
   {
-    label: "Name",
-    id: columId.Name,
+    label: 'Name',
+    id: columId.Name
   },
   {
-    label: "Gender",
-    id: columId.Gender,
+    label: 'Gender',
+    id: columId.Gender
   },
   {
-    label: "Body Weight",
-    id: columId.BodyWeight,
+    label: 'Body Weight',
+    id: columId.BodyWeight
   },
   {
-    label: "Category",
-    id: columId.ClassCategory,
+    label: 'Category',
+    id: columId.ClassCategory
   },
   {
-    label: "S1",
-    id: columId.S1,
+    label: 'S1',
+    id: columId.S1
   },
   {
-    label: "S2",
-    id: columId.S2,
+    label: 'S2',
+    id: columId.S2
   },
   {
-    label: "S3",
-    id: columId.S3,
+    label: 'S3',
+    id: columId.S3
   },
   {
-    label: "Best lift",
-    id: columId.Total,
+    label: 'Best lift',
+    id: columId.Total
   },
   {
-    label: "Points",
-    id: columId.Points,
+    label: 'Points',
+    id: columId.Points
   },
   {
-    label: "Place",
-    id: columId.Place,
-  },
-];
+    label: 'Place',
+    id: columId.Place
+  }
+]
 
 const Lifting = () => {
-  const [lifters, setLifters] = useState(liftersMock);
-  const [lifter, setLifter] = useState(null);
+  const [lifters, setLifters] = useState(liftersMock)
+  const [lifter, setLifter] = useState(null)
 
   const selectLifter = (lifter: any) => {
-    setLifter(lifter);
-  };
+    setLifter(lifter)
+  }
 
   const handleNoLift = () => {
     lifters.forEach((lifter) => {
-      lifter.s1.status = true;
-    });
-  };
+      lifter.s1.status = true
+    })
+  }
 
   return (
     <>
@@ -200,7 +200,7 @@ const Lifting = () => {
         </Button>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default Lifting;
+export default Lifting

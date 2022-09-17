@@ -1,8 +1,8 @@
-import { Box } from "@mui/material";
-import { styles } from "./TextBox.styles";
+import { Box } from '@mui/material'
+import { styles } from './TextBox.styles'
 
 interface IProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 const TextBox: React.FC<IProps> = ({ children }) => {
@@ -10,7 +10,7 @@ const TextBox: React.FC<IProps> = ({ children }) => {
     <Box component="span" sx={styles.textBox}>
       {children}
     </Box>
-  );
-};
+  )
+}
 
-export default TextBox;
+export default TextBox

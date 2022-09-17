@@ -1,7 +1,7 @@
-import EditableField from "../../components/EditableField";
+import EditableField from '../../components/EditableField'
 
 const About = () => {
-  return <EditableField />;
-};
+  return <EditableField />
+}
 
-export default About;
+export default About

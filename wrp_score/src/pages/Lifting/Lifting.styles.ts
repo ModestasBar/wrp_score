@@ -1,7 +1,7 @@
 export const styles = {
   resultsColumn: {
-    "&.MuiGrid-item": {
-      paddingTop: 1,
-    },
-  },
-};
+    '&.MuiGrid-item': {
+      paddingTop: 1
+    }
+  }
+}
