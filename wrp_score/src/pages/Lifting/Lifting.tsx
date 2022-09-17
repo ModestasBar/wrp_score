@@ -1,80 +1,15 @@
-import { Button, Grid, Input, TextField, Typography } from '@mui/material'
-import { Box } from '@mui/system'
-import { useState } from 'react'
-import EditableField from '../../components/EditableField'
-import TextBox from '../../components/TextBox'
-import { styles } from './Lifting.styles'
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+import { useEffect, useState } from 'react';
+import { Table, TableCell, TableHead } from '@mui/material';
+import Box from '@mui/material/Box/Box';
+import Button from '@mui/material/Button/Button';
+import TableBody from '@mui/material/TableBody/TableBody';
+import TableRow from '@mui/material/TableRow/TableRow';
 
-const liftersMock = [
-  {
-    name: 'Modestas',
-    surname: 'Baranauskas',
-    gender: 'M',
-    bodyWeight: 70,
-    classCategory: '75',
-    s1: {
-      weight: '12',
-      status: false
-    },
-    s2: {
-      weight: '78',
-      status: false
-    },
-    s3: {
-      weight: '98',
-      status: false
-    },
-    total: 56,
-    points: 45,
-    place: 1
-  },
-  {
-    name: 'Modestas',
-    surname: 'Baranauskas',
-    gender: 'F',
-    bodyWeight: 70,
-    classCategory: '75',
-    s1: {
-      weight: '12',
-      status: false
-    },
-    s2: {
-      weight: '78',
-      status: false
-    },
-    s3: {
-      weight: '98',
-      status: false
-    },
-    total: 56,
-    points: 45,
-    place: 1
-  },
-  {
-    name: 'Modestas',
-    surname: 'Baranauskas',
-    gender: 'F',
-    bodyWeight: 85,
-    classCategory: '90',
-    s1: {
-      weight: '12',
-      status: false
-    },
-    s2: {
-      weight: '78',
-      status: false
-    },
-    s3: {
-      weight: '98',
-      status: false
-    },
-    total: 56,
-    points: 45,
-    place: 1
-  }
-]
+import EditableField from '../../components/EditableField';
+import { styles } from './Lifting.styles';
 
-enum columId {
+export enum columId {
   Name,
   Gender,
   BodyWeight,
@@ -90,102 +25,128 @@ enum columId {
 const gridColumn = [
   {
     label: 'Name',
-    id: columId.Name
+    id: columId.Name,
+    sx: {
+      width: '200px',
+      borderRight: '1px solid black',
+    },
   },
   {
     label: 'Gender',
-    id: columId.Gender
+    id: columId.Gender,
+    sx: {
+      width: '100px',
+      borderRight: '1px solid black',
+    },
   },
   {
     label: 'Body Weight',
-    id: columId.BodyWeight
+    id: columId.BodyWeight,
+    sx: {
+      width: '100px',
+      borderRight: '1px solid black',
+    },
   },
   {
     label: 'Category',
-    id: columId.ClassCategory
+    id: columId.ClassCategory,
+    sx: {
+      width: '100px',
+      borderRight: '1px solid black',
+    },
   },
   {
     label: 'S1',
-    id: columId.S1
+    id: columId.S1,
+    sx: {
+      width: '200px',
+      borderRight: '1px solid black',
+    },
   },
   {
     label: 'S2',
-    id: columId.S2
+    id: columId.S2,
+    sx: {
+      width: '200px',
+      borderRight: '1px solid black',
+    },
   },
   {
     label: 'S3',
-    id: columId.S3
+    id: columId.S3,
+    sx: {
+      width: '200px',
+      borderRight: '1px solid black',
+    },
   },
   {
     label: 'Best lift',
-    id: columId.Total
+    id: columId.Total,
   },
   {
     label: 'Points',
-    id: columId.Points
+    id: columId.Points,
   },
   {
     label: 'Place',
-    id: columId.Place
-  }
-]
+    id: columId.Place,
+  },
+];
 
 const Lifting = () => {
-  const [lifters, setLifters] = useState(liftersMock)
-  const [lifter, setLifter] = useState(null)
+  const [lifters, setLifters] = useState<any>([]);
+  const [lifter, setLifter] = useState(null);
 
-  const selectLifter = (lifter: any) => {
-    setLifter(lifter)
-  }
+  useEffect(() => {
+    fetch('http://localhost:3004/participants')
+      .then(async (resp) => await resp.json())
+      .then((res) => {
+        console.log(res);
+        setLifters(res);
+      })
+      .catch((e) => e);
+  }, []);
 
-  const handleNoLift = () => {
-    lifters.forEach((lifter) => {
-      lifter.s1.status = true
-    })
-  }
+  const selectLifter = () => {};
 
+  const handleNoLift = () => {};
   return (
     <>
-      <Grid container spacing={2}>
-        {lifters.map((lifter) => (
-          <>
-            <Grid container item xs={3} spacing={2}>
-              <Grid item>
-                <TextBox>{`${lifter.name} ${lifter.surname}`}</TextBox>
-              </Grid>
-              <Grid item>
-                <TextBox>{`${lifter.gender}`}</TextBox>
-              </Grid>
-              <Grid item>
-                <TextBox>{`${lifter.bodyWeight}`}</TextBox>
-              </Grid>
-              <Grid item>
-                <TextBox>{`${lifter.classCategory}`}</TextBox>
-              </Grid>
-            </Grid>
-            <Grid item xs={2} sx={styles.resultsColumn}>
-              <EditableField />
-            </Grid>
-            <Grid item xs={2} sx={styles.resultsColumn}>
-              <EditableField />
-            </Grid>
-            <Grid item xs={2} sx={styles.resultsColumn}>
-              <EditableField />
-            </Grid>
-            <Grid container item xs={3} spacing={2}>
-              <Grid item>
-                <TextBox>{lifter.total}</TextBox>
-              </Grid>
-              <Grid item>
-                <TextBox>{lifter.points}</TextBox>
-              </Grid>
-              <Grid item>
-                <TextBox>{lifter.place}</TextBox>
-              </Grid>
-            </Grid>
-          </>
-        ))}
-      </Grid>
+      <Table size="small" aria-label="customized table" stickyHeader>
+        <TableHead>
+          <TableRow>
+            {gridColumn.map((colm, index) => (
+              <TableCell key={index} sx={styles.tableCell}>
+                {colm.label}
+              </TableCell>
+            ))}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {lifters.map((row: any, index: number) => (
+            <TableRow sx={styles.tableRow} key={index}>
+              <TableCell sx={styles.tableCell}>
+                {`${row.name} ${row.surname}`}
+              </TableCell>
+              <TableCell sx={styles.tableCell}>{row.gender}</TableCell>
+              <TableCell sx={styles.tableCell}>{row.bodyWeight}</TableCell>
+              <TableCell sx={styles.tableCell}>{row.classCategory}</TableCell>
+              <TableCell sx={styles.tableCell}>
+                <EditableField />
+              </TableCell>
+              <TableCell sx={styles.tableCell}>
+                <EditableField />
+              </TableCell>
+              <TableCell sx={styles.tableCell}>
+                <EditableField />
+              </TableCell>
+              <TableCell sx={styles.tableCell}>{row.total}</TableCell>
+              <TableCell sx={styles.tableCell}>{row.points}</TableCell>
+              <TableCell sx={styles.tableCell}>{row.place}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
       <Box display="flex" position="absolute" bottom={0} right={0} p={2}>
         <Button
           color="error"
@@ -200,7 +161,7 @@ const Lifting = () => {
         </Button>
       </Box>
     </>
-  )
-}
+  );
+};
 
-export default Lifting
+export default Lifting;

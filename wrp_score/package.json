@@ -25,7 +25,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "json-server": "json-server --watch db/db.json --port 3004"
   },
   "browserslist": {
     "production": [
@@ -48,6 +49,7 @@
     "eslint-plugin-n": "^15.2.5",
     "eslint-plugin-promise": "^6.0.1",
     "eslint-plugin-react": "^7.31.8",
+    "json-server": "^0.17.0",
     "typescript": "^4.8.3"
   }
 }

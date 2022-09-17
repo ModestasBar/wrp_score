@@ -1,5 +1,5 @@
-import RegForm from '../../components/RegForm'
-import RegTable from '../../components/RegTable'
+import RegForm from '../../components/RegForm';
+import RegTable from '../../components/RegTable';
 
 const Registration = () => {
   return (
@@ -7,7 +7,7 @@ const Registration = () => {
       <RegForm />
       <RegTable />
     </>
-  )
-}
+  );
+};
 
-export default Registration
+export default Registration;

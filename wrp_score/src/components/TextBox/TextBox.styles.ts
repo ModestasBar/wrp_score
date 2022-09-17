@@ -1,8 +1,8 @@
 export const styles = {
   textBox: {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'start',
     alignItems: 'center',
-    height: '100%'
-  }
-}
+    height: '100%',
+  },
+};
