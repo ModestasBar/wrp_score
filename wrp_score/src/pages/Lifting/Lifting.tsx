@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Table, TableCell, TableHead } from '@mui/material';
 import Box from '@mui/material/Box/Box';
 import Button from '@mui/material/Button/Button';
@@ -8,6 +8,7 @@ import TableRow from '@mui/material/TableRow/TableRow';
 
 import EditableField from '../../components/EditableField';
 import { styles } from './Lifting.styles';
+import { useGetParticipantsQuery } from '../../api/participantsApi';
 
 export enum columId {
   Name,
@@ -97,18 +98,7 @@ const Lifting = () => {
   const [lifters, setLifters] = useState<any>([]);
   const [lifter, setLifter] = useState(null);
 
-  useEffect(() => {
-    fetch('http://localhost:3004/participants')
-      .then(async (resp) => await resp.json())
-      .then((res) => {
-        console.log(res);
-        setLifters(res);
-      })
-      .catch((e) => e);
-  }, []);
-
-  const selectLifter = () => {};
-
+  const { data, error, isLoading, isSuccess } = useGetParticipantsQuery({});
   const handleNoLift = () => {};
   return (
     <>
@@ -123,7 +113,7 @@ const Lifting = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {lifters.map((row: any, index: number) => (
+          {data?.map((row: any, index: number) => (
             <TableRow sx={styles.tableRow} key={index}>
               <TableCell sx={styles.tableCell}>
                 {`${row.name} ${row.surname}`}
