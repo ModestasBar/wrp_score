@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import { routes } from './routes';
+import { Box } from '@mui/material';
 
 export interface IdummyData {
   name: string;
@@ -10,25 +11,26 @@ export interface IdummyData {
   age: string;
 }
 
+const styles = {
+  mainContainer: {
+    bgcolor: '#cfe8fc',
+    minHeight: '100vh',
+    p: { xs: 1, md: 2 },
+    position: 'relative',
+  },
+};
+
 const App: React.FC = () => {
   return (
-    <Container
-      fixed
-      sx={{
-        bgcolor: '#cfe8fc',
-        minHeight: '100vh',
-        p: { xs: 1, md: 2 },
-        position: 'relative',
-      }}
-    >
+    <Container fixed sx={styles.mainContainer}>
       <NavBar />
-      <div style={{ marginTop: '75px' }}>
+      <Box component="div" sx={{ marginTop: '75px' }}>
         <Routes>
           {routes.map(({ path, element }) => (
             <Route path={path} element={element} key={path} />
           ))}
         </Routes>
-      </div>
+      </Box>
     </Container>
   );
 };

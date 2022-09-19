@@ -1,15 +1,21 @@
 import { Box, Button, Grid, TextField, MenuItem } from '@mui/material';
 import { Formik } from 'formik';
-import { useRegisterNewParticipantMutation } from '../../api/participantsApi';
+import {
+  useGetParticipantsQuery,
+  useRegisterNewParticipantMutation,
+} from '../../api/participantsApi';
 import { registrationFields } from './fields';
 
 const RegForm: React.FC = () => {
   const [registerNew, result] = useRegisterNewParticipantMutation();
+  const { data } = useGetParticipantsQuery({});
 
   return (
     <>
       <Formik
-        onSubmit={async (newParticipant) => await registerNew(newParticipant)}
+        onSubmit={async (newParticipant) =>
+          await registerNew({ ...newParticipant, id: Number(data.length) + 1 })
+        }
         initialValues={{}}
       >
         {({ handleSubmit, handleChange }) => (

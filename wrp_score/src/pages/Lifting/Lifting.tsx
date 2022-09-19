@@ -9,6 +9,7 @@ import TableRow from '@mui/material/TableRow/TableRow';
 import EditableField from '../../components/EditableField';
 import { styles } from './Lifting.styles';
 import { useGetParticipantsQuery } from '../../api/participantsApi';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 export enum columId {
   Name,
@@ -95,50 +96,51 @@ const gridColumn = [
 ];
 
 const Lifting = () => {
-  const [lifters, setLifters] = useState<any>([]);
-  const [lifter, setLifter] = useState(null);
-
-  const { data, error, isLoading, isSuccess } = useGetParticipantsQuery({});
+  const { data, isLoading, isSuccess } = useGetParticipantsQuery({});
   const handleNoLift = () => {};
   return (
     <>
-      <Table size="small" aria-label="customized table" stickyHeader>
-        <TableHead>
-          <TableRow>
-            {gridColumn.map((colm, index) => (
-              <TableCell key={index} sx={styles.tableCell}>
-                {colm.label}
-              </TableCell>
-            ))}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data?.map((row: any, index: number) => (
-            <TableRow sx={styles.tableRow} key={index}>
-              <TableCell sx={styles.tableCell}>
-                {`${row.name} ${row.surname}`}
-              </TableCell>
-              <TableCell sx={styles.tableCell}>{row.gender}</TableCell>
-              <TableCell sx={styles.tableCell}>{row.bodyWeight}</TableCell>
-              <TableCell sx={styles.tableCell}>{row.classCategory}</TableCell>
-              <TableCell sx={styles.tableCell}>
-                <EditableField />
-              </TableCell>
-              <TableCell sx={styles.tableCell}>
-                <EditableField />
-              </TableCell>
-              <TableCell sx={styles.tableCell}>
-                <EditableField />
-              </TableCell>
-              <TableCell sx={styles.tableCell}>{row.total}</TableCell>
-              <TableCell sx={styles.tableCell}>{row.points}</TableCell>
-              <TableCell sx={styles.tableCell}>{row.place}</TableCell>
+      {isLoading && <LoadingSpinner />}
+      {isSuccess && (
+        <Table size="small" aria-label="customized table" stickyHeader>
+          <TableHead>
+            <TableRow>
+              {gridColumn.map((colm, index) => (
+                <TableCell key={index} sx={styles.tableCell}>
+                  {colm.label}
+                </TableCell>
+              ))}
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {data?.map((row: any, index: number) => (
+              <TableRow sx={styles.tableRow} key={index}>
+                <TableCell sx={styles.tableCell}>
+                  {`${row.name} ${row.surname}`}
+                </TableCell>
+                <TableCell sx={styles.tableCell}>{row.gender}</TableCell>
+                <TableCell sx={styles.tableCell}>{row.bodyWeight}</TableCell>
+                <TableCell sx={styles.tableCell}>{row.classCategory}</TableCell>
+                <TableCell sx={styles.tableCell}>
+                  <EditableField />
+                </TableCell>
+                <TableCell sx={styles.tableCell}>
+                  <EditableField />
+                </TableCell>
+                <TableCell sx={styles.tableCell}>
+                  <EditableField />
+                </TableCell>
+                <TableCell sx={styles.tableCell}>{row.total}</TableCell>
+                <TableCell sx={styles.tableCell}>{row.points}</TableCell>
+                <TableCell sx={styles.tableCell}>{row.place}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      )}
       <Box display="flex" position="absolute" bottom={0} right={0} p={2}>
         <Button
+          disabled={isLoading}
           color="error"
           variant="contained"
           sx={{ mr: 2 }}
@@ -146,7 +148,7 @@ const Lifting = () => {
         >
           No Lift
         </Button>
-        <Button color="success" variant="contained">
+        <Button color="success" variant="contained" disabled={isLoading}>
           Good Lift
         </Button>
       </Box>

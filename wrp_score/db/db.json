@@ -70,20 +70,36 @@
       "place": 1
     },
     {
-      "name": "Modestas",
-      "surname": "32",
-      "gender": "Female",
-      "calender": "123",
-      "bodyWeight": "123",
+      "name": "1",
+      "surname": "2",
+      "gender": "F",
+      "calender": "1994-07-24",
+      "bodyWeight": "55",
+      "id": 4
+    },
+    {
+      "name": "1",
+      "surname": "2",
+      "gender": "F",
+      "calender": "1994-07-24",
+      "bodyWeight": "55",
       "id": 5
     },
     {
-      "name": "Antanas",
-      "surname": "Baranauskas",
-      "gender": "Female",
-      "calender": "1993-12-21",
-      "bodyWeight": "85",
+      "name": "1",
+      "surname": "2",
+      "gender": "F",
+      "calender": "1994-07-24",
+      "bodyWeight": "55",
       "id": 6
+    },
+    {
+      "name": "1",
+      "surname": "2",
+      "gender": "F",
+      "calender": "1994-07-24",
+      "bodyWeight": "55",
+      "id": 7
     }
   ]
 }

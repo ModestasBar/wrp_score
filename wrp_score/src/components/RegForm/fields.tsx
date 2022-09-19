@@ -15,8 +15,8 @@ export enum Fields {
 }
 
 export enum Gender {
-  Male = 'Male',
-  Female = 'Female',
+  Male = 'M',
+  Female = 'F',
 }
 
 export const registrationFields: TRegistrationField[] = [

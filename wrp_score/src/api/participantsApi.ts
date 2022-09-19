@@ -18,7 +18,7 @@ export const participantsApi = createApi({
       query: (newParticipant) => ({
         url: '/participants',
         method: 'POST',
-        body: { ...newParticipant, id: 6 },
+        body: newParticipant,
       }),
       invalidatesTags: [TAG_TYPE.PARTICIPANTS],
     }),
