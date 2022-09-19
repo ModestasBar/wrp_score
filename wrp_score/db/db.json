@@ -1,43 +1,89 @@
 {
   "participants": [
     {
+      "id": 1,
       "name": "Modestas",
       "surname": "Baranauskas",
       "gender": "M",
       "bodyWeight": 70,
       "classCategory": "75",
-      "s1": { "weight": "12", "status": false },
-      "s2": { "weight": "78", "status": false },
-      "s3": { "weight": "98", "status": false },
+      "s1": {
+        "weight": "12",
+        "status": false
+      },
+      "s2": {
+        "weight": "78",
+        "status": false
+      },
+      "s3": {
+        "weight": "98",
+        "status": false
+      },
       "total": 56,
       "points": 45,
       "place": 1
     },
     {
+      "id": 2,
       "name": "Modestas",
       "surname": "Baranauskas",
       "gender": "F",
       "bodyWeight": 70,
       "classCategory": "75",
-      "s1": { "weight": "12", "status": false },
-      "s2": { "weight": "78", "status": false },
-      "s3": { "weight": "98", "status": false },
+      "s1": {
+        "weight": "12",
+        "status": false
+      },
+      "s2": {
+        "weight": "78",
+        "status": false
+      },
+      "s3": {
+        "weight": "98",
+        "status": false
+      },
+      "total": 56,
+      "points": 45,
+      "place": 1
+    },
+    {
+      "id": 3,
+      "name": "Modestas",
+      "surname": "Baranauskas",
+      "gender": "F",
+      "bodyWeight": 85,
+      "classCategory": "90",
+      "s1": {
+        "weight": "12",
+        "status": false
+      },
+      "s2": {
+        "weight": "78",
+        "status": false
+      },
+      "s3": {
+        "weight": "98",
+        "status": false
+      },
       "total": 56,
       "points": 45,
       "place": 1
     },
     {
       "name": "Modestas",
+      "surname": "32",
+      "gender": "Female",
+      "calender": "123",
+      "bodyWeight": "123",
+      "id": 5
+    },
+    {
+      "name": "Antanas",
       "surname": "Baranauskas",
-      "gender": "F",
-      "bodyWeight": 85,
-      "classCategory": "90",
-      "s1": { "weight": "12", "status": false },
-      "s2": { "weight": "78", "status": false },
-      "s3": { "weight": "98", "status": false },
-      "total": 56,
-      "points": 45,
-      "place": 1
+      "gender": "Female",
+      "calender": "1993-12-21",
+      "bodyWeight": "85",
+      "id": 6
     }
   ]
 }

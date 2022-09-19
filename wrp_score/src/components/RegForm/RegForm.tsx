@@ -1,18 +1,17 @@
-import { Box, Button, Grid, TextField, MenuItem } from '@mui/material'
-import { Formik } from 'formik'
-import { registrationFields } from './fields'
-
-// First name
-// Last name
-// Gender
-// Birth year
-// Body weight
-// Class - automatically
+import { Box, Button, Grid, TextField, MenuItem } from '@mui/material';
+import { Formik } from 'formik';
+import { useRegisterNewParticipantMutation } from '../../api/participantsApi';
+import { registrationFields } from './fields';
 
 const RegForm: React.FC = () => {
+  const [registerNew, result] = useRegisterNewParticipantMutation();
+
   return (
     <>
-      <Formik onSubmit={(values) => console.log(values)} initialValues={{}}>
+      <Formik
+        onSubmit={async (newParticipant) => await registerNew(newParticipant)}
+        initialValues={{}}
+      >
         {({ handleSubmit, handleChange }) => (
           <>
             <Grid container rowSpacing={2} columnSpacing={2}>
@@ -22,7 +21,9 @@ const RegForm: React.FC = () => {
                     <TextField
                       {...rest}
                       onChange={handleChange}
-                      InputProps={{ ...(typeof inputProps === 'object' ? inputProps : {}) }}
+                      InputProps={{
+                        ...(typeof inputProps === 'object' ? inputProps : {}),
+                      }}
                       sx={{ width: '100%' }}
                     >
                       {Boolean(rest.select) &&
@@ -45,7 +46,7 @@ const RegForm: React.FC = () => {
         )}
       </Formik>
     </>
-  )
-}
+  );
+};
 
-export default RegForm
+export default RegForm;
