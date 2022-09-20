@@ -5,12 +5,6 @@ import { Route, Routes } from 'react-router-dom';
 import { routes } from './routes';
 import { Box } from '@mui/material';
 
-export interface IdummyData {
-  name: string;
-  surname: string;
-  age: string;
-}
-
 const styles = {
   mainContainer: {
     bgcolor: '#cfe8fc',

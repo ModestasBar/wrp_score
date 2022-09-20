@@ -3,10 +3,10 @@ import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { IdummyData } from '../../App';
+import { IParticipant } from '../../dto/participant.dto';
 
 interface IProps {
-  lifter: IdummyData;
+  lifter: IParticipant;
 }
 
 const Lifter: React.FC<IProps> = ({ lifter }) => {

@@ -4,19 +4,30 @@ import {
   useGetParticipantsQuery,
   useRegisterNewParticipantMutation,
 } from '../../api/participantsApi';
-import { registrationFields } from './fields';
+import { IParticipant } from '../../dto/participant.dto';
+import { initValues, registrationFields } from './RegForm.fields';
+
+export type TNewParticipant = Omit<IParticipant, 'id' | 's1' | 's2' | 's3'>;
 
 const RegForm: React.FC = () => {
-  const [registerNew, result] = useRegisterNewParticipantMutation();
-  const { data } = useGetParticipantsQuery({});
+  const [registerNew] = useRegisterNewParticipantMutation();
+  const { data: participantsList } = useGetParticipantsQuery({});
+
+  const addParticipant = async (participant: TNewParticipant) => {
+    await registerNew({
+      ...initValues,
+      ...participant,
+      id: Number(participantsList?.length) + 1,
+    });
+  };
 
   return (
     <>
       <Formik
-        onSubmit={async (newParticipant) =>
-          await registerNew({ ...newParticipant, id: Number(data.length) + 1 })
+        onSubmit={async (newParticipant: TNewParticipant) =>
+          await addParticipant(newParticipant)
         }
-        initialValues={{}}
+        initialValues={initValues}
       >
         {({ handleSubmit, handleChange }) => (
           <>
@@ -33,7 +44,7 @@ const RegForm: React.FC = () => {
                       sx={{ width: '100%' }}
                     >
                       {Boolean(rest.select) &&
-                        values.map(({ value, label }: any) => (
+                        values?.map(({ value, label }) => (
                           <MenuItem key={value} value={value}>
                             {label}
                           </MenuItem>

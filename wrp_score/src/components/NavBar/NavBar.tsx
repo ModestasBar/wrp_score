@@ -22,8 +22,18 @@ interface IProps {
   window?: () => Window;
 }
 
+export enum pageLinks {
+  HOME = 'Home',
+  REGISTRATION = 'Registration',
+  COMPETITION = 'Competition',
+}
+
 const drawerWidth = 240;
-const navItems = ['Home', 'Registration', 'Lifting'];
+const navItems = [
+  pageLinks.HOME,
+  pageLinks.REGISTRATION,
+  pageLinks.COMPETITION,
+];
 
 const NavBar: React.FC<IProps> = (props) => {
   const { window } = props;

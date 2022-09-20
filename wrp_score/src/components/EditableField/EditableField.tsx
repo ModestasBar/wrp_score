@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useState } from 'react';
-import { styles } from './styles';
+import { styles } from './EditableField.styles';
 
 const EditableField = () => {
   const [lockWeight, setLockWeight] = useState(false);

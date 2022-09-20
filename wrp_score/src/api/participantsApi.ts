@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { IParticipant } from '../dto/participant.dto';
 
 enum TAG_TYPE {
   PARTICIPANTS = 'participants',
@@ -10,12 +11,12 @@ export const participantsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3004' }),
   tagTypes: [TAG_TYPE.PARTICIPANTS],
   endpoints: (builder) => ({
-    getParticipants: builder.query({
+    getParticipants: builder.query<IParticipant[], unknown>({
       query: () => '/participants',
       providesTags: [TAG_TYPE.PARTICIPANTS],
     }),
     registerNewParticipant: builder.mutation({
-      query: (newParticipant) => ({
+      query: (newParticipant: IParticipant) => ({
         url: '/participants',
         method: 'POST',
         body: newParticipant,
