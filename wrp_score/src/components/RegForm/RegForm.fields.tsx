@@ -10,52 +10,59 @@ type TRegistrationField = TextFieldProps & {
   values?: IDropdownOptions[];
 };
 
-export enum Fields {
+export enum fieldsName {
   NAME = 'name',
   SURNAME = 'surname',
   GENDER = 'gender',
-  CALENDER = 'calender',
   BIRTH_YEAR = 'birthYear',
   BODY_WEIGHT = 'bodyWeight',
+  CLASS_CATEGORY = 'classCategory',
 }
 
-export enum Gender {
-  Male = 'M',
-  Female = 'F',
+export enum genderVal {
+  MALE = 'M',
+  FEMALE = 'F',
+}
+
+export enum classCategory {
+  CATEGORY_1 = 'category1',
+  CATEGORY_2 = 'category2',
+  CATEGORY_3 = 'category3',
+  CATEGORY_4 = 'category4',
 }
 
 export const registrationFields: TRegistrationField[] = [
   {
-    name: Fields.NAME,
+    name: fieldsName.NAME,
     label: 'First name',
     variant: 'standard',
   },
   {
-    name: Fields.SURNAME,
+    name: fieldsName.SURNAME,
     label: 'Last name',
     type: 'surname',
     variant: 'standard',
   },
   {
-    name: Fields.GENDER,
+    name: fieldsName.GENDER,
     variant: 'standard',
     label: 'Gender',
     type: 'gender',
     select: true,
     values: [
-      { label: 'Male', value: Gender.Male },
-      { label: 'Female', value: Gender.Female },
+      { label: 'Male', value: genderVal.MALE },
+      { label: 'Female', value: genderVal.FEMALE },
     ],
   },
   {
-    name: Fields.CALENDER,
+    name: fieldsName.BIRTH_YEAR,
     label: 'Birth year',
     type: 'calender',
     variant: 'standard',
     helperText: 'YYYY-MM-DD',
   },
   {
-    name: Fields.BODY_WEIGHT,
+    name: fieldsName.BODY_WEIGHT,
     label: 'Body weight',
     variant: 'standard',
     inputProps: {
@@ -63,10 +70,16 @@ export const registrationFields: TRegistrationField[] = [
     },
   },
   {
-    label: 'Class',
-    type: 'calender',
-    variant: 'filled',
-    inputProps: { readOnly: true },
+    name: fieldsName.CLASS_CATEGORY,
+    label: 'Category',
+    variant: 'standard',
+    select: true,
+    values: [
+      { label: 'Category1', value: classCategory.CATEGORY_1 },
+      { label: 'Category2', value: classCategory.CATEGORY_2 },
+      { label: 'Category3', value: classCategory.CATEGORY_3 },
+      { label: 'Category4', value: classCategory.CATEGORY_4 },
+    ],
   },
 ];
 

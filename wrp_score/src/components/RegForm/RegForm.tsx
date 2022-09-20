@@ -13,22 +13,19 @@ const RegForm: React.FC = () => {
   const [registerNew] = useRegisterNewParticipantMutation();
   const { data: participantsList } = useGetParticipantsQuery({});
 
-  const addParticipant = async (participant: TNewParticipant) => {
+  const onSubmit = async (participant: TNewParticipant, { resetForm }: any) => {
+    console.log(participant);
     await registerNew({
       ...initValues,
       ...participant,
       id: Number(participantsList?.length) + 1,
     });
+    resetForm({});
   };
 
   return (
     <>
-      <Formik
-        onSubmit={async (newParticipant: TNewParticipant) =>
-          await addParticipant(newParticipant)
-        }
-        initialValues={initValues}
-      >
+      <Formik onSubmit={onSubmit} initialValues={initValues}>
         {({ handleSubmit, handleChange }) => (
           <>
             <Grid container rowSpacing={2} columnSpacing={2}>

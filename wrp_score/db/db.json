@@ -70,36 +70,54 @@
       "place": 1
     },
     {
-      "name": "1",
-      "surname": "2",
-      "gender": "F",
-      "calender": "1994-07-24",
-      "bodyWeight": "55",
+      "name": "Antanas",
+      "surname": "Baranauskas",
+      "gender": "M",
+      "bodyWeight": "85",
+      "classCategory": "category3",
+      "birthYear": "1993-12-21",
+      "age": "",
+      "s1": {
+        "weight": null,
+        "status": false
+      },
+      "s2": {
+        "weight": null,
+        "status": false
+      },
+      "s3": {
+        "weight": null,
+        "status": false
+      },
+      "total": null,
+      "points": null,
+      "place": null,
       "id": 4
     },
     {
-      "name": "1",
-      "surname": "2",
-      "gender": "F",
-      "calender": "1994-07-24",
-      "bodyWeight": "55",
+      "name": "Erikas",
+      "surname": "Dovydenas",
+      "gender": "M",
+      "bodyWeight": "75",
+      "classCategory": "category3",
+      "birthYear": "1992-10-21",
+      "age": "",
+      "s1": {
+        "weight": null,
+        "status": false
+      },
+      "s2": {
+        "weight": null,
+        "status": false
+      },
+      "s3": {
+        "weight": null,
+        "status": false
+      },
+      "total": null,
+      "points": null,
+      "place": null,
       "id": 5
-    },
-    {
-      "name": "1",
-      "surname": "2",
-      "gender": "F",
-      "calender": "1994-07-24",
-      "bodyWeight": "55",
-      "id": 6
-    },
-    {
-      "name": "1",
-      "surname": "2",
-      "gender": "F",
-      "calender": "1994-07-24",
-      "bodyWeight": "55",
-      "id": 7
     }
   ]
 }

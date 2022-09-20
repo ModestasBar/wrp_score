@@ -31,8 +31,8 @@ export enum pageLinks {
 const drawerWidth = 240;
 const navItems = [
   pageLinks.HOME,
-  pageLinks.REGISTRATION,
   pageLinks.COMPETITION,
+  pageLinks.REGISTRATION,
 ];
 
 const NavBar: React.FC<IProps> = (props) => {

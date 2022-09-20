@@ -31,7 +31,7 @@ const Competition = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {participants.map((row: any, index: number) => (
+            {participants.map((row, index: number) => (
               <TableRow sx={styles.tableRow} key={index}>
                 {competitionRow(row).map(({ content }, index) => (
                   <TableCell key={index} sx={styles.tableCell}>

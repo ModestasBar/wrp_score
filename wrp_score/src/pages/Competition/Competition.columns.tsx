@@ -1,4 +1,5 @@
 import EditableField from '../../components/EditableField';
+import { IParticipant } from '../../dto/participant.dto';
 
 export const competitionRow = ({
   name,
@@ -9,7 +10,7 @@ export const competitionRow = ({
   total,
   points,
   place,
-}: any) => [
+}: IParticipant) => [
   {
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     content: `${name} ${surname}`,
@@ -51,7 +52,7 @@ export enum headColumnId {
   S1,
   S2,
   S3,
-  TOTAL,
+  BEST,
   POINTS,
   PLACE,
 }
@@ -74,7 +75,7 @@ export const competitionHeadColumns = [
     },
   },
   {
-    label: 'Body Weight',
+    label: 'Weight',
     id: headColumnId.BODY_WEIGHT,
     sx: {
       width: '100px',
@@ -114,8 +115,8 @@ export const competitionHeadColumns = [
     },
   },
   {
-    label: 'Best lift',
-    id: headColumnId.TOTAL,
+    label: 'Best',
+    id: headColumnId.BEST,
   },
   {
     label: 'Points',
