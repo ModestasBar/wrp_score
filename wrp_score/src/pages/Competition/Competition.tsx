@@ -7,6 +7,8 @@ import { styles } from './Competition.styles';
 import { useGetParticipantsQuery } from '../../api/participantsApi';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { competitionHeadColumns, competitionRow } from './Competition.columns';
+import SidebarControl from '../../components/SidebarControl';
+import { useState } from 'react';
 
 const Competition = () => {
   const {
@@ -15,9 +17,11 @@ const Competition = () => {
     isSuccess,
   } = useGetParticipantsQuery({});
   const handleNoLift = () => {};
+  const [open, setOpen] = useState(false);
 
   return (
-    <>
+    <Box sx={{ display: 'flex', height: '80vh', overflowY: 'auto' }}>
+      <SidebarControl open={open} />
       {isLoading && <LoadingSpinner />}
       {isSuccess && (
         <Table size="small" aria-label="customized table" stickyHeader>
@@ -56,8 +60,9 @@ const Competition = () => {
         <Button color="success" variant="contained" disabled={isLoading}>
           Good Lift
         </Button>
+        <Button onClick={() => setOpen(!open)}>Open drawer</Button>
       </Box>
-    </>
+    </Box>
   );
 };
 
