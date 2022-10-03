@@ -78,20 +78,20 @@
       "birthYear": "1993-12-21",
       "age": "",
       "s1": {
-        "weight": null,
+        "weight": "",
         "status": false
       },
       "s2": {
-        "weight": null,
+        "weight": "",
         "status": false
       },
       "s3": {
-        "weight": null,
+        "weight": "",
         "status": false
       },
-      "total": null,
-      "points": null,
-      "place": null,
+      "total": "",
+      "points": "",
+      "place": "",
       "id": 4
     },
     {
@@ -103,21 +103,49 @@
       "birthYear": "12312332",
       "age": "",
       "s1": {
-        "weight": null,
+        "weight": "",
         "status": false
       },
       "s2": {
-        "weight": null,
+        "weight": "",
         "status": false
       },
       "s3": {
-        "weight": null,
+        "weight": "",
         "status": false
       },
-      "total": null,
-      "points": null,
-      "place": null,
+      "total": "",
+      "points": "",
+      "place": "",
       "id": 5
+    },
+    {
+      "name": "Modestas",
+      "surname": "",
+      "gender": "F",
+      "bodyWeight": "32",
+      "classCategory": "category2",
+      "birthYear": "1996",
+      "age": "",
+      "s1": {
+        "id": "s1",
+        "weight": "",
+        "status": "pending"
+      },
+      "s2": {
+        "id": "s2",
+        "weight": "",
+        "status": "pending"
+      },
+      "s3": {
+        "id": "s3",
+        "weight": "",
+        "status": "pending"
+      },
+      "total": "",
+      "points": "",
+      "place": "",
+      "id": 6
     }
   ]
 }

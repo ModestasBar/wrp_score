@@ -83,28 +83,3 @@ export const registrationFields: TRegistrationField[] = [
     ],
   },
 ];
-
-export const initValues = {
-  name: '',
-  surname: '',
-  gender: '',
-  bodyWeight: '',
-  classCategory: '',
-  birthYear: '',
-  age: '',
-  s1: {
-    weight: null,
-    status: STryStatus.PENDING,
-  },
-  s2: {
-    weight: null,
-    status: STryStatus.PENDING,
-  },
-  s3: {
-    weight: null,
-    status: STryStatus.PENDING,
-  },
-  total: null,
-  points: null,
-  place: null,
-};

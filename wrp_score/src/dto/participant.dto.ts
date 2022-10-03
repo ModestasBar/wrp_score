@@ -4,8 +4,14 @@ export enum STryStatus {
   FAIL = 'fail',
 }
 
+export enum TryId {
+  S1 = 's1',
+  S2 = 's2',
+  S3 = 's3',
+}
+
 export interface IParticipant {
-  id: number;
+  id?: number;
   name: string;
   surname: string;
   gender: string;
@@ -16,12 +22,41 @@ export interface IParticipant {
   s1: IStry;
   s2: IStry;
   s3: IStry;
-  total: number | null;
-  points: number | null;
-  place: number | null;
+  total: string | null;
+  points: string | null;
+  place: string | null;
 }
 
+export const initialParticipant: IParticipant = {
+  name: '',
+  surname: '',
+  gender: '',
+  bodyWeight: '',
+  classCategory: '',
+  birthYear: '',
+  age: '',
+  s1: {
+    id: TryId.S1,
+    weight: '',
+    status: STryStatus.PENDING,
+  },
+  s2: {
+    id: TryId.S2,
+    weight: '',
+    status: STryStatus.PENDING,
+  },
+  s3: {
+    id: TryId.S3,
+    weight: '',
+    status: STryStatus.PENDING,
+  },
+  total: '',
+  points: '',
+  place: '',
+};
+
 export interface IStry {
-  weight: number | null;
+  id: TryId;
+  weight: string | null;
   status: STryStatus;
 }

@@ -14,7 +14,13 @@ import SidebarControl from '../../components/SidebarControl';
 import GoodLiftNoLift from '../../components/GoodLiftNoLift/GoodLiftNoLift';
 import { useState } from 'react';
 import EditableField from '../../components/EditableField';
-import { IParticipant } from '../../dto/participant.dto';
+import { IParticipant, TryId } from '../../dto/participant.dto';
+
+export interface ILiftLock {
+  tryId: TryId;
+  participant: IParticipant;
+  value: string;
+}
 
 const Competition = () => {
   const {
@@ -22,10 +28,14 @@ const Competition = () => {
     isLoading,
     isSuccess,
   } = useGetParticipantsQuery(undefined);
-  const [liftLock, setLiftLock] = useState<IParticipant | null>(null);
+  const [liftLock, setLiftLock] = useState<ILiftLock | null>(null);
 
-  const handleLiftLock = (sType, value, participant) => {
-    setLiftLock((participant[sType]?.weight = value));
+  const handleLockLift = (
+    tryId: TryId,
+    participant: IParticipant,
+    value: string
+  ) => {
+    setLiftLock({ tryId, participant, value });
   };
 
   return (
@@ -46,21 +56,16 @@ const Competition = () => {
           <TableBody>
             {participants.map((participant, index: number) => (
               <TableRow sx={styles.tableRow} key={index}>
-                {competitionRow(participant).map(
-                  ({ content, editable }, index) => (
-                    <TableCell key={index} sx={styles.tableCell}>
-                      {editable ? (
-                        <EditableField
-                          data={participant}
-                          content={content}
-                          handleLiftLock={() => handleLiftLock(participant)}
-                        />
-                      ) : (
-                        (content as string)
-                      )}
-                    </TableCell>
-                  )
-                )}
+                {competitionRow(participant).map((params, index: number) => (
+                  <TableCell key={index} sx={styles.tableCell}>
+                    <EditableField
+                      handleLiftLock={(tryId, value) =>
+                        handleLockLift(tryId, participant, value)
+                      }
+                      {...params}
+                    />
+                  </TableCell>
+                ))}
               </TableRow>
             ))}
           </TableBody>

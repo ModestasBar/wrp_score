@@ -1,8 +1,13 @@
-import { IParticipant, IStry } from '../../dto/participant.dto';
+import { IParticipant, IStry, TryId } from '../../dto/participant.dto';
+
+interface IEditable {
+  editableId: TryId;
+  data: IStry;
+}
 
 export interface ICompRow {
-  editable: boolean;
-  content: string | null | number | IStry;
+  editable?: IEditable;
+  content?: string | null | number;
 }
 
 export const competitionRow = ({
@@ -20,43 +25,42 @@ export const competitionRow = ({
 }: IParticipant): ICompRow[] => [
   {
     content: `${name} ${surname}`,
-    editable: false,
   },
   {
     content: gender,
-    editable: false,
   },
   {
     content: bodyWeight,
-    editable: false,
   },
   {
     content: classCategory,
-    editable: false,
   },
   {
-    content: s1,
-    editable: true,
+    editable: {
+      editableId: TryId.S1,
+      data: s1,
+    },
   },
   {
-    content: s2,
-    editable: true,
+    editable: {
+      editableId: TryId.S2,
+      data: s2,
+    },
   },
   {
-    content: s3,
-    editable: true,
+    editable: {
+      editableId: TryId.S3,
+      data: s3,
+    },
   },
   {
     content: total,
-    editable: false,
   },
   {
     content: points,
-    editable: false,
   },
   {
     content: place,
-    editable: false,
   },
 ];
 

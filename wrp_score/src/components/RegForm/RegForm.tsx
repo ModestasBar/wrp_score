@@ -4,8 +4,8 @@ import {
   useGetParticipantsQuery,
   useRegisterNewParticipantMutation,
 } from '../../api/participantsApi';
-import { IParticipant } from '../../dto/participant.dto';
-import { initValues, registrationFields } from './RegForm.fields';
+import { initialParticipant, IParticipant } from '../../dto/participant.dto';
+import { registrationFields } from './RegForm.fields';
 
 export type TNewParticipant = Omit<IParticipant, 'id' | 's1' | 's2' | 's3'>;
 
@@ -16,7 +16,7 @@ const RegForm: React.FC = () => {
   const onSubmit = async (participant: TNewParticipant) => {
     console.log(participant);
     await registerNew({
-      ...initValues,
+      ...initialParticipant,
       ...participant,
       id: Number(participantsList?.length) + 1,
     });
@@ -24,7 +24,7 @@ const RegForm: React.FC = () => {
 
   return (
     <>
-      <Formik onSubmit={onSubmit} initialValues={initValues}>
+      <Formik onSubmit={onSubmit} initialValues={initialParticipant}>
         {({ handleSubmit, handleChange }) => (
           <>
             <Grid container rowSpacing={2} columnSpacing={2}>

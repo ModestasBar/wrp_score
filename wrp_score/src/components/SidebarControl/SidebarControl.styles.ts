@@ -22,7 +22,7 @@ const openedMixin = (theme: Theme): CSSObject => ({
 
 const drawerWidth = 240;
 
-export const useSx = (open: boolean) => ({
+export const useSx = (open: boolean): Record<string, SxProps<Theme>> => ({
   drawerHeader: ({ spacing, mixins }: Theme) => ({
     display: 'flex',
     alignItems: 'center',

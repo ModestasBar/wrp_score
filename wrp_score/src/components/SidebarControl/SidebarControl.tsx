@@ -23,7 +23,7 @@ const SidebarControl = () => {
   const styles = useSx(open);
 
   return (
-    <Drawer variant='permanent' open={open} sx={styles.drawer as any}>
+    <Drawer variant="permanent" open={open} sx={styles.drawer}>
       <Box sx={styles.drawerHeader}>
         <IconButton onClick={() => setOpen(!open)}>
           {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
