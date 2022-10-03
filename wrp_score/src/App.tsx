@@ -1,4 +1,3 @@
-import React from 'react';
 import Container from '@mui/material/Container';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
@@ -14,11 +13,11 @@ const styles = {
   },
 };
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Container fixed sx={styles.mainContainer}>
       <NavBar />
-      <Box component="div" sx={{ marginTop: '75px' }}>
+      <Box component='div' sx={{ marginTop: '75px' }}>
         <Routes>
           {routes.map(({ path, element }) => (
             <Route path={path} element={element} key={path} />

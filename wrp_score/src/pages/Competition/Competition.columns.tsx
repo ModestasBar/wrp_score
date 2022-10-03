@@ -1,5 +1,9 @@
-import EditableField from '../../components/EditableField';
-import { IParticipant } from '../../dto/participant.dto';
+import { IParticipant, IStry } from '../../dto/participant.dto';
+
+export interface ICompRow {
+  editable: boolean;
+  content: string | null | number | IStry;
+}
 
 export const competitionRow = ({
   name,
@@ -10,37 +14,49 @@ export const competitionRow = ({
   total,
   points,
   place,
-}: IParticipant) => [
+  s1,
+  s2,
+  s3,
+}: IParticipant): ICompRow[] => [
   {
-    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     content: `${name} ${surname}`,
+    editable: false,
   },
   {
     content: gender,
+    editable: false,
   },
   {
     content: bodyWeight,
+    editable: false,
   },
   {
     content: classCategory,
+    editable: false,
   },
   {
-    content: <EditableField />,
+    content: s1,
+    editable: true,
   },
   {
-    content: <EditableField />,
+    content: s2,
+    editable: true,
   },
   {
-    content: <EditableField />,
+    content: s3,
+    editable: true,
   },
   {
     content: total,
+    editable: false,
   },
   {
     content: points,
+    editable: false,
   },
   {
     content: place,
+    editable: false,
   },
 ];
 

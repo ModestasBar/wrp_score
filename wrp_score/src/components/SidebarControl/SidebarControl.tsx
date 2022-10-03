@@ -1,38 +1,32 @@
-/* eslint-disable multiline-ternary */
-import { useTheme } from '@mui/material/styles';
-import { Box } from '@mui/material';
-import MuiDrawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
+import {
+  Box,
+  Drawer,
+  List,
+  Divider,
+  IconButton,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from '@mui/material';
+
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+
 import { useSx } from './SidebarControl.styles';
+import { useState } from 'react';
 
-interface IProps {
-  open: boolean;
-}
-
-const SidebarControl = ({ open }: IProps) => {
-  const theme = useTheme();
+const SidebarControl = () => {
+  const [open, setOpen] = useState(false);
   const styles = useSx(open);
-  console.log('hi');
 
   return (
-    <MuiDrawer variant="permanent" open={open} sx={styles.drawer as any}>
+    <Drawer variant='permanent' open={open} sx={styles.drawer as any}>
       <Box sx={styles.drawerHeader}>
-        <IconButton>
-          {theme.direction === 'rtl' ? (
-            <ChevronRightIcon />
-          ) : (
-            <ChevronLeftIcon />
-          )}
+        <IconButton onClick={() => setOpen(!open)}>
+          {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </IconButton>
       </Box>
       <Divider />
@@ -85,7 +79,7 @@ const SidebarControl = ({ open }: IProps) => {
           </ListItem>
         ))}
       </List>
-    </MuiDrawer>
+    </Drawer>
   );
 };
 

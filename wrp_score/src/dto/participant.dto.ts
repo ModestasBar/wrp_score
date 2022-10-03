@@ -1,3 +1,9 @@
+enum STryStatus {
+  PENDING = 'pending',
+  SUCCESS = 'success',
+  FAIL = 'fail',
+}
+
 export interface IParticipant {
   id: number;
   name: string;
@@ -17,5 +23,5 @@ export interface IParticipant {
 
 export interface IStry {
   weight: number | null;
-  status: boolean;
+  status: STryStatus;
 }
