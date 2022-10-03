@@ -53,7 +53,7 @@ const Competition = () => {
                         <EditableField
                           data={participant}
                           content={content}
-                          handleLiftLock={() => setLiftLock(participant)}
+                          handleLiftLock={() => handleLiftLock(participant)}
                         />
                       ) : (
                         (content as string)
