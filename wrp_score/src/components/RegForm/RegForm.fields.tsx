@@ -1,4 +1,5 @@
 import { InputAdornment, InputBaseProps, TextFieldProps } from '@mui/material';
+import { STryStatus } from '../../dto/participant.dto';
 
 export interface IDropdownOptions {
   label: string;
@@ -93,15 +94,15 @@ export const initValues = {
   age: '',
   s1: {
     weight: null,
-    status: false,
+    status: STryStatus.PENDING,
   },
   s2: {
     weight: null,
-    status: false,
+    status: STryStatus.PENDING,
   },
   s3: {
     weight: null,
-    status: false,
+    status: STryStatus.PENDING,
   },
   total: null,
   points: null,

@@ -14,6 +14,7 @@ import SidebarControl from '../../components/SidebarControl';
 import GoodLiftNoLift from '../../components/GoodLiftNoLift/GoodLiftNoLift';
 import { useState } from 'react';
 import EditableField from '../../components/EditableField';
+import { IParticipant } from '../../dto/participant.dto';
 
 const Competition = () => {
   const {
@@ -21,14 +22,18 @@ const Competition = () => {
     isLoading,
     isSuccess,
   } = useGetParticipantsQuery(undefined);
-  const [record, setRecord] = useState();
+  const [liftLock, setLiftLock] = useState<IParticipant | null>(null);
+
+  const handleLiftLock = (sType, value, participant) => {
+    setLiftLock((participant[sType]?.weight = value));
+  };
 
   return (
     <Box sx={{ display: 'flex', maxHeight: '80vh', overflowY: 'auto' }}>
       <SidebarControl />
       {isLoading && <LoadingSpinner />}
       {isSuccess && (
-        <Table size='small' aria-label='customized table' stickyHeader>
+        <Table size="small" aria-label="customized table" stickyHeader>
           <TableHead>
             <TableRow>
               {competitionHeadColumns.map((column, index) => (
@@ -45,7 +50,11 @@ const Competition = () => {
                   ({ content, editable }, index) => (
                     <TableCell key={index} sx={styles.tableCell}>
                       {editable ? (
-                        <EditableField data={participant} content={content} />
+                        <EditableField
+                          data={participant}
+                          content={content}
+                          handleLiftLock={() => setLiftLock(participant)}
+                        />
                       ) : (
                         (content as string)
                       )}
@@ -57,7 +66,11 @@ const Competition = () => {
           </TableBody>
         </Table>
       )}
-      <GoodLiftNoLift isLoading={isLoading} />
+      <GoodLiftNoLift
+        isLoading={isLoading}
+        handleGoodLift={() => {}}
+        handleBadLift={() => {}}
+      />
     </Box>
   );
 };

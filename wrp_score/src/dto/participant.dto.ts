@@ -1,4 +1,4 @@
-enum STryStatus {
+export enum STryStatus {
   PENDING = 'pending',
   SUCCESS = 'success',
   FAIL = 'fail',

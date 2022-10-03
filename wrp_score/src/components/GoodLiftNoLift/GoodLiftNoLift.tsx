@@ -3,6 +3,8 @@ import { Box } from '@mui/system';
 
 interface IProps {
   isLoading: boolean;
+  handleGoodLift: () => void;
+  handleBadLift: () => void;
 }
 
 const GoodLiftNoLift: React.FC<IProps> = ({ isLoading }) => {
