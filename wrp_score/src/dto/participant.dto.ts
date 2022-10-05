@@ -11,7 +11,7 @@ export enum TryId {
 }
 
 export interface IParticipant {
-  id?: number;
+  id: number;
   name: string;
   surname: string;
   gender: string;
@@ -27,7 +27,7 @@ export interface IParticipant {
   place: string | null;
 }
 
-export const initialParticipant: IParticipant = {
+export const initialParticipant: Omit<IParticipant, 'id'> = {
   name: '',
   surname: '',
   gender: '',

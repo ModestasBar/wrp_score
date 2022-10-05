@@ -7,24 +7,25 @@ interface IProps {
   handleBadLift: () => void;
 }
 
-const GoodLiftNoLift: React.FC<IProps> = ({ isLoading }) => {
-  const handleNoLift = () => {};
-  const handleGoodLift = () => {};
-
+const GoodLiftNoLift: React.FC<IProps> = ({
+  isLoading,
+  handleBadLift,
+  handleGoodLift,
+}) => {
   return (
-    <Box display='flex' position='absolute' bottom={0} right={0} p={2}>
+    <Box display="flex" position="absolute" bottom={0} right={0} p={2}>
       <Button
         disabled={isLoading}
-        color='error'
-        variant='contained'
+        color="error"
+        variant="contained"
         sx={{ mr: 2 }}
-        onClick={handleNoLift}
+        onClick={handleBadLift}
       >
         No Lift
       </Button>
       <Button
-        color='success'
-        variant='contained'
+        color="success"
+        variant="contained"
         disabled={isLoading}
         onClick={handleGoodLift}
       >

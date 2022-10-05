@@ -4,46 +4,46 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { styles } from './CompetitionCell.styles';
 import { ICompRow } from '../../pages/Competition/Competition.columns';
-import { STryStatus, TryId } from '../../dto/participant.dto';
+import { STryStatus } from '../../dto/participant.dto';
+import { ILiftLock } from '../../pages/Competition/Competition';
 
 interface IProps extends ICompRow {
-  handleLiftLock: (tryId: TryId, value: string) => void;
+  handleLiftLock: (params: Omit<ILiftLock, 'participant'>) => void;
 }
 
-const RenderCell: React.FC<IProps> = ({
+const CompetitionCell: React.FC<IProps> = ({
   content,
   editable,
   handleLiftLock,
 }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [lockWeight, setLockWeight] = useState(false);
-  const [readyToLift, setReadyToLift] = useState(false);
   const [value, setValue] = useState(editable?.data.weight ?? '');
 
-  const handleLockClick = () => {
+  const handleLockClick = useCallback(() => {
     setLockWeight(!lockWeight);
-    setReadyToLift(false);
-  };
-  const handleInputClick = () => {
-    if (lockWeight && editable?.editableId) {
-      setReadyToLift(!readyToLift);
-      handleLiftLock(editable.editableId, value);
+
+    if (editable?.editableId) {
+      handleLiftLock({ tryId: editable.editableId, setIsLoading, value });
     }
-  };
+  }, [lockWeight, editable]);
 
   const LockComponent = lockWeight ? LockOutlinedIcon : LockOpenOutlinedIcon;
-
   return (
     <>
-      {editable && !content ? (
+      {isLoading && 'Loading'}
+      {!isLoading && editable && !content ? (
         <Box
           sx={[
             styles.box,
-            lockWeight && styles.boxLock,
-            readyToLift && styles.boxReady,
+            editable.data.status === STryStatus.PENDING &&
+              lockWeight &&
+              styles.boxReady,
             editable.data.status === STryStatus.SUCCESS && styles.boxSuccess,
+            editable.data.status === STryStatus.FAIL && styles.boxFail,
           ]}
         >
           <InputBase
@@ -51,7 +51,6 @@ const RenderCell: React.FC<IProps> = ({
             placeholder="Kg"
             type="number"
             disabled={lockWeight}
-            onClick={handleInputClick}
             value={value}
             onChange={({ target: { value } }) => {
               setValue(value);
@@ -69,4 +68,4 @@ const RenderCell: React.FC<IProps> = ({
   );
 };
 
-export default RenderCell;
+export default CompetitionCell;

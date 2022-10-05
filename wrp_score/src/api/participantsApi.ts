@@ -23,8 +23,19 @@ export const participantsApi = createApi({
       }),
       invalidatesTags: [TAG_TYPE.PARTICIPANTS],
     }),
+    updateParticipant: builder.mutation({
+      query: (participant: IParticipant) => ({
+        url: `/participants/${participant.id}`,
+        method: 'PUT',
+        body: participant,
+      }),
+      invalidatesTags: [TAG_TYPE.PARTICIPANTS],
+    }),
   }),
 });
 
-export const { useGetParticipantsQuery, useRegisterNewParticipantMutation } =
-  participantsApi;
+export const {
+  useGetParticipantsQuery,
+  useRegisterNewParticipantMutation,
+  useUpdateParticipantMutation,
+} = participantsApi;
