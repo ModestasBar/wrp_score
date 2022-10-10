@@ -54,7 +54,7 @@
       "bodyWeight": 85,
       "classCategory": "90",
       "s1": {
-        "status": "fail",
+        "status": "success",
         "weight": 12
       },
       "s2": {
@@ -65,7 +65,7 @@
         "status": "success",
         "weight": "983234"
       },
-      "total": 56,
+      "total": 12,
       "points": 45,
       "place": 1
     },
@@ -303,18 +303,16 @@
       "birthYear": "123",
       "age": "",
       "s1": {
-        "id": "s1",
-        "weight": "",
-        "status": "pending"
+        "status": "success",
+        "weight": ""
       },
       "s2": {
         "status": "fail",
         "weight": ""
       },
       "s3": {
-        "id": "s3",
-        "weight": "",
-        "status": "pending"
+        "status": "success",
+        "weight": ""
       },
       "total": "",
       "points": "",
@@ -335,9 +333,8 @@
         "status": "pending"
       },
       "s2": {
-        "id": "s2",
-        "weight": "",
-        "status": "pending"
+        "status": "fail",
+        "weight": ""
       },
       "s3": {
         "id": "s3",
@@ -610,9 +607,8 @@
       "birthYear": "123",
       "age": "",
       "s1": {
-        "id": "s1",
-        "weight": "",
-        "status": "pending"
+        "status": "success",
+        "weight": ""
       },
       "s2": {
         "id": "s2",

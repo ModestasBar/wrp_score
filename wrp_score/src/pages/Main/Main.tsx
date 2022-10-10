@@ -1,7 +1,6 @@
-import { Grid } from '@mui/material';
 import { useGetParticipantsQuery } from '../../api/participantsApi';
-import Lifter from '../../components/Lifter';
 import LoadingSpinner from '../../components/LoadingSpinner';
+import ParticipantAccordion from './components/ParticipantAccordion';
 
 export interface ILifterInfo {
   name: string;
@@ -19,15 +18,10 @@ const Main = () => {
   return (
     <>
       {isLoading && <LoadingSpinner />}
-      {isSuccess && (
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          {participantsList.map((lifter, index: number) => (
-            <Grid key={index} item xs={12} md={6} lg={4}>
-              <Lifter lifter={lifter} />
-            </Grid>
-          ))}
-        </Grid>
-      )}
+      {isSuccess &&
+        participantsList.map((data) => (
+          <ParticipantAccordion participant={data} key={data.id} />
+        ))}
     </>
   );
 };

@@ -68,7 +68,7 @@ const Competition = () => {
       setLiftLock(null);
     }
   };
-  console.log({ isLoading, isUpdating });
+
   return (
     <Box sx={{ display: 'flex', maxHeight: '80vh', overflowY: 'auto' }}>
       <SidebarControl />

@@ -54,8 +54,8 @@ const NavBar: React.FC<IProps> = (props) => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant='h6' sx={{ my: 2 }}>
-        MUI
+      <Typography variant="h6" sx={{ my: 2 }}>
+        LAF
       </Typography>
       <Divider />
       <List>
@@ -78,23 +78,23 @@ const NavBar: React.FC<IProps> = (props) => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar component='nav' position='absolute'>
+      <AppBar component="nav" position="absolute">
         <Toolbar>
           <IconButton
-            color='inherit'
-            aria-label='open drawer'
-            edge='start'
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
           <Typography
-            variant='h6'
-            component='div'
+            variant="h6"
+            component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            LAF
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
@@ -109,10 +109,10 @@ const NavBar: React.FC<IProps> = (props) => {
           </Box>
         </Toolbar>
       </AppBar>
-      <Box component='nav'>
+      <Box component="nav">
         <Drawer
           container={container}
-          variant='temporary'
+          variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
