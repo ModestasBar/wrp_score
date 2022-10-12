@@ -20,15 +20,14 @@ const openedMixin = (theme: Theme): CSSObject => ({
   overflowX: 'hidden',
 });
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
-export const useSx = (open: boolean): Record<string, SxProps<Theme>> => ({
-  drawerHeader: ({ spacing, mixins }: Theme) => ({
+export const styles: Record<string, SxProps<Theme>> = {
+  drawerHeader: ({ spacing, mixins, palette }: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: spacing(0, 1),
-    // necessary for content to be below app bar
     ...mixins.toolbar,
   }),
   drawer: (theme: Theme) => ({
@@ -39,15 +38,14 @@ export const useSx = (open: boolean): Record<string, SxProps<Theme>> => ({
     '& .MuiPaper-root': {
       position: 'absolute',
     },
-    ...(Boolean(open) && {
-      ...openedMixin(theme),
-      '& .MuiDrawer-paper': openedMixin(theme),
-    }),
-    ...(!open
-      ? {
-          ...closedMixin(theme),
-          '& .MuiDrawer-paper': closedMixin(theme),
-        }
-      : {}),
+
+    '& .MuiDrawer-paper': {
+      width: drawerWidth,
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      overflowX: 'hidden',
+    },
   }),
-});
+};

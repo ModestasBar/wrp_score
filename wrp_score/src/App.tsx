@@ -6,7 +6,7 @@ import { Box } from '@mui/material';
 
 const styles = {
   mainContainer: {
-    bgcolor: '#cfe8fc',
+    bgcolor: '#f9f9f9',
     minHeight: '100vh',
     p: { xs: 1, md: 2 },
     position: 'relative',

@@ -70,7 +70,7 @@ const Competition = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', maxHeight: '80vh', overflowY: 'auto' }}>
+    <Box sx={{ display: 'flex', maxHeight: '82vh', overflowY: 'auto' }}>
       <SidebarControl />
       {isLoading && <LoadingSpinner />}
       {isSuccess && (

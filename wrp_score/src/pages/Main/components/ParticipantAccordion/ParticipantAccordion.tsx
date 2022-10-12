@@ -5,6 +5,7 @@ import {
   AccordionSummary,
   Stack,
   Paper,
+  Divider,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { IParticipant } from '../../../../dto/participant.dto';
@@ -53,7 +54,8 @@ const ParticipantAccordion: React.FC<IProps> = ({ participant }) => {
         </Grid>
       </AccordionSummary>
       <AccordionDetails>
-        <Grid container spacing={2}>
+        <Divider />
+        <Grid container spacing={2} pt={2}>
           <Grid item xs={12} sm={6} md={4}>
             <Paper elevation={2} sx={{ width: '100%', height: '100%' }}>
               <Stack
