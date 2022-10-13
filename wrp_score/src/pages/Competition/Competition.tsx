@@ -70,16 +70,16 @@ const Competition = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', maxHeight: '82vh', overflowY: 'auto' }}>
+    <Box sx={{ display: 'flex', maxHeight: '82vh', overflowY: 'auto' }} ml={2}>
       <SidebarControl />
       {isLoading && <LoadingSpinner />}
       {isSuccess && (
-        <Table size="small" aria-label="customized table" stickyHeader>
+        <Table size="small" stickyHeader>
           <TableHead>
             <TableRow>
-              {competitionHeadColumns.map((column, index) => (
+              {competitionHeadColumns.map(({ label }, index) => (
                 <TableCell key={index} sx={styles.tableCell}>
-                  {column.label}
+                  {label}
                 </TableCell>
               ))}
             </TableRow>

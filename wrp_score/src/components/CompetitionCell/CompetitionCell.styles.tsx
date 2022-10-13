@@ -1,23 +1,20 @@
-import { SxProps, Theme } from '@mui/material';
+import { Theme } from '@mui/material';
 
 export const styles = {
   box: {
-    padding: '2px 4px',
+    padding: '6px 0px',
     display: 'flex',
     alignItems: 'center',
-    backgroundColor: 'white',
-    '& :hover': {
-      cursor: 'pointer',
-    },
+    position: 'relative',
   },
   boxReady: ({ palette }: Theme) => ({
-    backgroundColor: palette.secondary.light,
+    backgroundColor: '#bbe7ff',
   }),
   boxFail: ({ palette }: Theme) => ({
-    backgroundColor: palette.error.light,
+    backgroundColor: '#f79695',
   }),
   boxSuccess: ({ palette }: Theme) => ({
-    backgroundColor: palette.success.light,
+    backgroundColor: '#a9fbad',
   }),
   input: {
     ml: 1,

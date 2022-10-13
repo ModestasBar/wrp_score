@@ -11,8 +11,8 @@ export const styles: Record<string, SxProps<Theme>> = {
       backgroundColor: palette.common.black,
       color: palette.common.white,
     },
-    '& ': {
-      fontSize: 14,
+    '&.MuiTableCell-body': {
+      padding: '0px 16px',
     },
   }),
   tableRow: ({ palette }) => ({

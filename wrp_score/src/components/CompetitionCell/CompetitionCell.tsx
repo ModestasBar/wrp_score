@@ -1,10 +1,10 @@
-import { Box } from '@mui/material';
+import { Backdrop, Box, CircularProgress, Input } from '@mui/material';
+import { useCallback, useState } from 'react';
 import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { useCallback, useState } from 'react';
 import { styles } from './CompetitionCell.styles';
 import { ICompRow } from '../../pages/Competition/Competition.columns';
 import { STryStatus } from '../../dto/participant.dto';
@@ -34,8 +34,7 @@ const CompetitionCell: React.FC<IProps> = ({
   const LockComponent = lockWeight ? LockOutlinedIcon : LockOpenOutlinedIcon;
   return (
     <>
-      {isLoading && 'Loading'}
-      {!isLoading && editable && !content ? (
+      {editable && !content ? (
         <Box
           sx={[
             styles.box,
@@ -46,17 +45,28 @@ const CompetitionCell: React.FC<IProps> = ({
             editable.data.status === STryStatus.FAIL && styles.boxFail,
           ]}
         >
-          <InputBase
+          {isLoading && (
+            <Backdrop
+              sx={{
+                backgroundColor: '#f1f1f142',
+                color: '#2a29325c',
+                zIndex: 1221,
+                position: 'absolute',
+              }}
+              open={true}
+            >
+              <CircularProgress color="inherit" />
+            </Backdrop>
+          )}
+          <Input
             sx={styles.input}
             placeholder="Kg"
-            type="number"
-            disabled={lockWeight}
+            disabled={lockWeight || isLoading}
             value={value}
             onChange={({ target: { value } }) => {
               setValue(value);
             }}
           />
-          <Divider sx={{ height: 20, m: 0.1 }} orientation="vertical" />
           <IconButton color="primary" aria-label="directions">
             <LockComponent onClick={handleLockClick} />
           </IconButton>
