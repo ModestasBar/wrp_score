@@ -10,7 +10,7 @@ import { styles } from './Competition.styles';
 import {
   useGetParticipantsQuery,
   useUpdateParticipantMutation,
-} from '../../api/participantsApi';
+} from '../../modules/participants/participantsApi';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { competitionHeadColumns, competitionRow } from './Competition.columns';
 import SidebarControl from '../../components/SidebarControl';

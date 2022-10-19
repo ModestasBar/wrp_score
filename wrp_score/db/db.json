@@ -39,10 +39,10 @@
         "weight": 78
       },
       "s3": {
-        "status": "pending",
+        "status": "success",
         "weight": "98"
       },
-      "total": 78,
+      "total": "98",
       "points": 45,
       "place": 1
     },
@@ -86,7 +86,7 @@
         "weight": "45"
       },
       "s3": {
-        "status": "pending",
+        "status": "fail",
         "weight": "43423"
       },
       "total": "45",

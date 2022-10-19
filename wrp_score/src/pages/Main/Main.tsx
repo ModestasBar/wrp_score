@@ -1,4 +1,4 @@
-import { useGetParticipantsQuery } from '../../api/participantsApi';
+import { useGetParticipantsQuery } from '../../modules/participants/participantsApi';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import ParticipantAccordion from './components/ParticipantAccordion';
 

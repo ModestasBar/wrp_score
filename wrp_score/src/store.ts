@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { participantsApi } from './api/participantsApi';
+import competitionSlice from './modules/competition/competitionSlice';
+import { participantsApi } from './modules/participants/participantsApi';
 
 export const store = configureStore({
   reducer: {
     // Add the generated reducer as a specific top-level slice
     [participantsApi.reducerPath]: participantsApi.reducer,
+    competitionDetails: competitionSlice,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.

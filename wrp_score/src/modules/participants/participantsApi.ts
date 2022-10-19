@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IParticipant } from '../dto/participant.dto';
+import { IParticipant } from '../../dto/participant.dto';
 
 enum TAG_TYPE {
   PARTICIPANTS = 'participants',

@@ -53,7 +53,7 @@ const ParticipantAccordion: React.FC<IProps> = ({ participant }) => {
           </Grid>
         </Grid>
       </AccordionSummary>
-      <AccordionDetails>
+      <AccordionDetails sx={{ backgroundColor: '#f7f7f7', paddingTop: '0' }}>
         <Divider />
         <Grid container spacing={2} pt={2}>
           <Grid item xs={12} sm={6} md={4}>

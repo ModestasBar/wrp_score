@@ -6,7 +6,7 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import { styles } from './RegTable.styles';
 import { registrationFields } from '../RegForm/RegForm.fields';
-import { useGetParticipantsQuery } from '../../api/participantsApi';
+import { useGetParticipantsQuery } from '../../modules/participants/participantsApi';
 import LoadingSpinner from '../LoadingSpinner';
 
 const RegTable: React.FC = () => {

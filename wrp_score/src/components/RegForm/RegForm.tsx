@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import {
   useGetParticipantsQuery,
   useRegisterNewParticipantMutation,
-} from '../../api/participantsApi';
+} from '../../modules/participants/participantsApi';
 import { initialParticipant, IParticipant } from '../../dto/participant.dto';
 import { registrationFields } from './RegForm.fields';
 
