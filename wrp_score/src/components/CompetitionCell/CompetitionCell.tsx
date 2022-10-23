@@ -1,14 +1,12 @@
 import { Backdrop, Box, CircularProgress, Input } from '@mui/material';
 import { useCallback, useState } from 'react';
-import InputBase from '@mui/material/InputBase';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { styles } from './CompetitionCell.styles';
 import { ICompRow } from '../../pages/Competition/Competition.columns';
-import { STryStatus } from '../../dto/participant.dto';
 import { ILiftLock } from '../../pages/Competition/Competition';
+import { STryStatus } from '../../dto/game.dto';
 
 interface IProps extends ICompRow {
   handleLiftLock: (params: Omit<ILiftLock, 'participant'>) => void;

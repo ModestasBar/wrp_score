@@ -1,4 +1,4 @@
-import { STryStatus } from '../dto/participant.dto';
+import { STryStatus } from '../dto/game.dto';
 import { ILiftLock } from '../pages/Competition/Competition';
 
 export const calculateSuccessLift = (data: ILiftLock) => {

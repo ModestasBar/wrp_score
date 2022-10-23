@@ -10,21 +10,22 @@ import { styles } from './Competition.styles';
 import {
   useGetParticipantsQuery,
   useUpdateParticipantMutation,
-} from '../../modules/participants/participantsApi';
+} from '../../modules/participantsApi';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { competitionHeadColumns, competitionRow } from './Competition.columns';
 import SidebarControl from '../../components/SidebarControl';
 import GoodLiftNoLift from '../../components/GoodLiftNoLift/GoodLiftNoLift';
 import { useState } from 'react';
 import CompetitionCell from '../../components/CompetitionCell';
-import { IParticipant, TryId } from '../../dto/participant.dto';
+import { IParticipant } from '../../dto/participant.dto';
 import {
   calculateBadLift,
   calculateSuccessLift,
 } from '../../components/calculation.utils';
+import { AttemptName } from '../../dto/game.dto';
 
 export interface ILiftLock {
-  tryId: TryId;
+  tryId: AttemptName;
   participant: IParticipant;
   value: string;
   setIsLoading: (loading: boolean) => void;
@@ -85,20 +86,24 @@ const Competition = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {participants.map((participant, index: number) => (
-              <TableRow sx={styles.tableRow} key={index}>
-                {competitionRow(participant).map((params, index: number) => (
-                  <TableCell key={index} sx={styles.tableCell}>
-                    <CompetitionCell
-                      handleLiftLock={(lockLift) =>
-                        handleLockLift({ ...lockLift, participant })
-                      }
-                      {...params}
-                    />
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))}
+            {participants.map((participant, index: number) => {
+              console.log(participant);
+
+              return (
+                <TableRow sx={styles.tableRow} key={index}>
+                  {competitionRow(participant).map((params, index: number) => (
+                    <TableCell key={index} sx={styles.tableCell}>
+                      <CompetitionCell
+                        handleLiftLock={(lockLift) =>
+                          handleLockLift({ ...lockLift, participant })
+                        }
+                        {...params}
+                      />
+                    </TableCell>
+                  ))}
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       )}

@@ -1,8 +1,9 @@
-import { IParticipant, IStry, TryId } from '../../dto/participant.dto';
+import { AttemptName, GameName, IAttempt } from '../../dto/game.dto';
+import { IParticipant } from '../../dto/participant.dto';
 
 interface IEditable {
-  editableId: TryId;
-  data: IStry;
+  editableId: AttemptName;
+  data: IAttempt;
 }
 
 export interface ICompRow {
@@ -19,9 +20,13 @@ export const competitionRow = ({
   total,
   points,
   place,
-  s1,
-  s2,
-  s3,
+  allGames: {
+    [GameName.Game_1]: {
+      [AttemptName.S_1]: s1,
+      [AttemptName.S_1]: s2,
+      [AttemptName.S_1]: s3,
+    },
+  },
 }: IParticipant): ICompRow[] => [
   {
     content: `${name} ${surname}`,
@@ -37,19 +42,19 @@ export const competitionRow = ({
   },
   {
     editable: {
-      editableId: TryId.S1,
+      editableId: AttemptName.S_1,
       data: s1,
     },
   },
   {
     editable: {
-      editableId: TryId.S2,
+      editableId: AttemptName.S_2,
       data: s2,
     },
   },
   {
     editable: {
-      editableId: TryId.S3,
+      editableId: AttemptName.S_3,
       data: s3,
     },
   },
@@ -69,9 +74,9 @@ export enum headColumnId {
   GENDER,
   BODY_WEIGHT,
   CLASS_CATEGORY,
-  S1,
-  S2,
-  S3,
+  S_1,
+  S_2,
+  S_3,
   BEST,
   POINTS,
   PLACE,
@@ -96,15 +101,15 @@ export const competitionHeadColumns = [
   },
   {
     label: 'S1',
-    id: headColumnId.S1,
+    id: headColumnId.S_1,
   },
   {
     label: 'S2',
-    id: headColumnId.S2,
+    id: headColumnId.S_2,
   },
   {
     label: 'S3',
-    id: headColumnId.S3,
+    id: headColumnId.S_3,
   },
   {
     label: 'Best',

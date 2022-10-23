@@ -1,148 +1,75 @@
 {
   "participants": [
     {
-      "id": 1,
       "name": "Modestas",
-      "surname": "Baranauskas",
-      "gender": "M",
-      "bodyWeight": 70,
-      "classCategory": "75",
-      "s1": {
-        "status": "success",
-        "weight": "12"
-      },
-      "s2": {
-        "status": "fail",
-        "weight": "23"
-      },
-      "s3": {
-        "status": "pending",
-        "weight": "982"
-      },
-      "total": "12",
-      "points": 45,
-      "place": 1
-    },
-    {
-      "id": 2,
-      "name": "Modestas",
-      "surname": "Baranauskas",
-      "gender": "F",
-      "bodyWeight": 70,
-      "classCategory": "75",
-      "s1": {
-        "status": "fail",
-        "weight": 12
-      },
-      "s2": {
-        "status": "success",
-        "weight": 78
-      },
-      "s3": {
-        "status": "success",
-        "weight": "98"
-      },
-      "total": "98",
-      "points": 45,
-      "place": 1
-    },
-    {
-      "id": 3,
-      "name": "Jolita1",
-      "surname": "Baranauskas",
-      "gender": "F",
-      "bodyWeight": 85,
-      "classCategory": "90",
-      "s1": {
-        "status": "success",
-        "weight": 12
-      },
-      "s2": {
-        "status": "pending",
-        "weight": "7823"
-      },
-      "s3": {
-        "status": "pending",
-        "weight": "983234"
-      },
-      "total": 12,
-      "points": 45,
-      "place": 1
-    },
-    {
-      "name": "Antanas",
-      "surname": "Baranauskas",
-      "gender": "M",
-      "bodyWeight": "85",
-      "classCategory": "category3",
-      "birthYear": "1993-12-21",
-      "age": "",
-      "s1": {
-        "status": "fail",
-        "weight": ""
-      },
-      "s2": {
-        "status": "success",
-        "weight": "45"
-      },
-      "s3": {
-        "status": "fail",
-        "weight": "43423"
-      },
-      "total": "45",
-      "points": "",
-      "place": "",
-      "id": 4
-    },
-    {
-      "name": "Modestas",
-      "surname": "Baranauskas",
-      "gender": "M",
-      "bodyWeight": "3213",
-      "classCategory": "category2",
-      "birthYear": "12312332",
-      "age": "",
-      "s1": {
-        "status": "success",
-        "weight": "32"
-      },
-      "s2": {
-        "status": "success",
-        "weight": "23"
-      },
-      "s3": {
-        "status": "fail",
-        "weight": "45"
-      },
-      "total": "32",
-      "points": "",
-      "place": "",
-      "id": 5
-    },
-    {
-      "name": "Vitalija",
       "surname": "Stankeviciute",
-      "gender": "F",
+      "gender": "female",
       "bodyWeight": "55",
       "classCategory": "category2",
       "birthYear": "1996",
       "age": "",
-      "s1": {
-        "status": "fail",
-        "weight": ""
+      "allGames": {
+        "game_1": {
+          "s1": {
+            "weight": "",
+            "status": "pending"
+          },
+          "s2": {
+            "weight": "",
+            "status": "pending"
+          },
+          "s3": {
+            "weight": "",
+            "status": "pending"
+          }
+        },
+        "game_2": {
+          "s1": {
+            "weight": "",
+            "status": "pending"
+          },
+          "s2": {
+            "weight": "",
+            "status": "pending"
+          },
+          "s3": {
+            "weight": "",
+            "status": "pending"
+          }
+        },
+        "game_3": {
+          "s1": {
+            "weight": "",
+            "status": "pending"
+          },
+          "s2": {
+            "weight": "",
+            "status": "pending"
+          },
+          "s3": {
+            "weight": "",
+            "status": "pending"
+          }
+        },
+        "game_4": {
+          "s1": {
+            "weight": "",
+            "status": "pending"
+          },
+          "s2": {
+            "weight": "",
+            "status": "pending"
+          },
+          "s3": {
+            "weight": "",
+            "status": "pending"
+          }
+        }
       },
-      "s2": {
-        "status": "success",
-        "weight": "45"
-      },
-      "s3": {
-        "status": "fail",
-        "weight": ""
-      },
-      "total": "45",
+      "total": "",
       "points": "",
       "place": "",
-      "id": 6
+      "id": 1
     }
   ]
 }

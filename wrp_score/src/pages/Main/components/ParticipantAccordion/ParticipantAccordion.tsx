@@ -74,15 +74,15 @@ const ParticipantAccordion: React.FC<IProps> = ({ participant }) => {
                 >
                   <Box display="flex" justifyItems="center">
                     <DoneIcon color="success" />
-                    <Box ml={0.5}>S1: 12</Box>
+                    <Box ml={0.5}>S_1: 12</Box>
                   </Box>
                   <Box display="flex" justifyItems="center">
                     <DoneIcon color="success" />
-                    <Box ml={0.5}>S2: 12</Box>
+                    <Box ml={0.5}>S_2: 12</Box>
                   </Box>
                   <Box display="flex" justifyItems="center">
                     <CloseIcon color="error" />
-                    <Box ml={0.5}>S1: 12</Box>
+                    <Box ml={0.5}>S_1: 12</Box>
                   </Box>
                 </Stack>
                 <Stack
@@ -120,15 +120,15 @@ const ParticipantAccordion: React.FC<IProps> = ({ participant }) => {
                 >
                   <Box display="flex" justifyItems="center">
                     <DoneIcon color="success" />
-                    <Box ml={0.5}>S1: 12</Box>
+                    <Box ml={0.5}>S_1: 12</Box>
                   </Box>
                   <Box display="flex" justifyItems="center">
                     <DoneIcon color="success" />
-                    <Box ml={0.5}>S2: 12</Box>
+                    <Box ml={0.5}>S_2: 12</Box>
                   </Box>
                   <Box display="flex" justifyItems="center">
                     <CloseIcon color="error" />
-                    <Box ml={0.5}>S1: 12</Box>
+                    <Box ml={0.5}>S_1: 12</Box>
                   </Box>
                 </Stack>
                 <Stack
@@ -166,15 +166,15 @@ const ParticipantAccordion: React.FC<IProps> = ({ participant }) => {
                 >
                   <Box display="flex" justifyItems="center">
                     <DoneIcon color="success" />
-                    <Box ml={0.5}>S1: 12</Box>
+                    <Box ml={0.5}>S_1: 12</Box>
                   </Box>
                   <Box display="flex" justifyItems="center">
                     <DoneIcon color="success" />
-                    <Box ml={0.5}>S2: 12</Box>
+                    <Box ml={0.5}>S_2: 12</Box>
                   </Box>
                   <Box display="flex" justifyItems="center">
                     <CloseIcon color="error" />
-                    <Box ml={0.5}>S1: 12</Box>
+                    <Box ml={0.5}>S_1: 12</Box>
                   </Box>
                 </Stack>
                 <Stack

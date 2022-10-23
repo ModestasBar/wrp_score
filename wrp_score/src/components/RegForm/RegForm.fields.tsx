@@ -1,5 +1,5 @@
 import { InputAdornment, InputBaseProps, TextFieldProps } from '@mui/material';
-import { STryStatus } from '../../dto/participant.dto';
+import { GameCategory, GenderOption } from '../../dto/general.dto';
 
 export interface IDropdownOptions {
   label: string;
@@ -11,59 +11,38 @@ type TRegistrationField = TextFieldProps & {
   values?: IDropdownOptions[];
 };
 
-export enum fieldsName {
-  NAME = 'name',
-  SURNAME = 'surname',
-  GENDER = 'gender',
-  BIRTH_YEAR = 'birthYear',
-  BODY_WEIGHT = 'bodyWeight',
-  CLASS_CATEGORY = 'classCategory',
-}
-
-export enum genderVal {
-  MALE = 'M',
-  FEMALE = 'F',
-}
-
-export enum classCategory {
-  CATEGORY_1 = 'category1',
-  CATEGORY_2 = 'category2',
-  CATEGORY_3 = 'category3',
-  CATEGORY_4 = 'category4',
-}
-
 export const registrationFields: TRegistrationField[] = [
   {
-    name: fieldsName.NAME,
+    name: 'name',
     label: 'First name',
     variant: 'standard',
   },
   {
-    name: fieldsName.SURNAME,
+    name: 'surname',
     label: 'Last name',
     type: 'surname',
     variant: 'standard',
   },
   {
-    name: fieldsName.GENDER,
+    name: 'gender',
     variant: 'standard',
     label: 'Gender',
     type: 'gender',
     select: true,
     values: [
-      { label: 'Male', value: genderVal.MALE },
-      { label: 'Female', value: genderVal.FEMALE },
+      { label: 'Male', value: GenderOption.MALE },
+      { label: 'Female', value: GenderOption.FEMALE },
     ],
   },
   {
-    name: fieldsName.BIRTH_YEAR,
+    name: 'birthYear',
     label: 'Birth year',
     type: 'calender',
     variant: 'standard',
     helperText: 'YYYY-MM-DD',
   },
   {
-    name: fieldsName.BODY_WEIGHT,
+    name: 'bodyWeight',
     label: 'Body weight',
     variant: 'standard',
     inputProps: {
@@ -71,15 +50,15 @@ export const registrationFields: TRegistrationField[] = [
     },
   },
   {
-    name: fieldsName.CLASS_CATEGORY,
+    name: 'classCategory',
     label: 'Category',
     variant: 'standard',
     select: true,
     values: [
-      { label: 'Category1', value: classCategory.CATEGORY_1 },
-      { label: 'Category2', value: classCategory.CATEGORY_2 },
-      { label: 'Category3', value: classCategory.CATEGORY_3 },
-      { label: 'Category4', value: classCategory.CATEGORY_4 },
+      { label: 'Category 1', value: GameCategory.CATEGORY_1 },
+      { label: 'Category 2', value: GameCategory.CATEGORY_2 },
+      { label: 'Category 3', value: GameCategory.CATEGORY_3 },
+      { label: 'Category 4', value: GameCategory.CATEGORY_4 },
     ],
   },
 ];
