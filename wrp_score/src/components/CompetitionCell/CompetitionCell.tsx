@@ -64,6 +64,7 @@ const CompetitionCell: React.FC<IProps> = ({
             onChange={({ target: { value } }) => {
               setValue(value);
             }}
+            disableUnderline
           />
           <IconButton color="primary" aria-label="directions">
             <LockComponent onClick={handleLockClick} />

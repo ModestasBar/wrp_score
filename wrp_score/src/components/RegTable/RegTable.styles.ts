@@ -8,15 +8,24 @@ export const styles: Record<string, SxProps<Theme>> = {
   }),
   tableCell: {
     fontSize: 14,
+    border: '1px solid #e0e0e0',
   },
-  tableRow: ({ palette }) => ({
-    '&.MuiTableRow-root': {
-      ':nth-of-type(odd)': {
-        backgroundColor: palette.action.hover,
+  numericCell: {
+    border: '1px solid #e0e0e0',
+    width: '0px',
+  },
+  deleteCell: {
+    border: '1px solid #e0e0e0',
+    '&.MuiTableCell-root.MuiTableCell-body': {
+      width: '0px',
+
+      '& svg': {
+        color: '#d16969',
+
+        '&:hover': {
+          cursor: 'pointer',
+        },
       },
     },
-    '& :last-child td, &:last-child th': {
-      border: 0,
-    },
-  }),
+  },
 };

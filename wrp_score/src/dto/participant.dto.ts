@@ -1,7 +1,7 @@
 import { IAllGames, initAllGamesValue } from './game.dto';
 
 export interface IParticipant {
-  id: number;
+  id: number | string;
   name: string;
   surname: string;
   gender: string;

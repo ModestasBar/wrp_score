@@ -12,15 +12,8 @@ export const styles: Record<string, SxProps<Theme>> = {
       color: palette.common.white,
     },
     '&.MuiTableCell-body': {
+      border: '1px solid #e0e0e0',
       padding: '0px 16px',
-    },
-  }),
-  tableRow: ({ palette }) => ({
-    '&:nth-of-type(odd)': {
-      backgroundColor: palette.action.hover,
-    },
-    '&:last-child td, &:last-child th': {
-      border: 0,
     },
   }),
 };

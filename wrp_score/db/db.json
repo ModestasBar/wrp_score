@@ -1,12 +1,12 @@
 {
   "participants": [
     {
-      "name": "Modestas",
-      "surname": "Stankeviciute",
-      "gender": "female",
-      "bodyWeight": "55",
-      "classCategory": "category2",
-      "birthYear": "1996",
+      "name": "",
+      "surname": "",
+      "gender": "",
+      "bodyWeight": "32",
+      "classCategory": "category1",
+      "birthYear": "",
       "age": "",
       "allGames": {
         "game_1": {
@@ -69,7 +69,7 @@
       "total": "",
       "points": "",
       "place": "",
-      "id": 1
+      "id": "ZU_ddrfwiJbi2XkE88V1j"
     }
   ]
 }

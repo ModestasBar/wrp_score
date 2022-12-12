@@ -31,6 +31,14 @@ export const participantsApi = createApi({
       }),
       invalidatesTags: [TAG_TYPE.PARTICIPANTS],
     }),
+    deleteParticipant: builder.mutation({
+      query: (participant: IParticipant) => ({
+        url: `/participants/${participant.id}`,
+        method: 'DELETE',
+        body: participant,
+      }),
+      invalidatesTags: [TAG_TYPE.PARTICIPANTS],
+    }),
   }),
 });
 
@@ -38,4 +46,5 @@ export const {
   useGetParticipantsQuery,
   useRegisterNewParticipantMutation,
   useUpdateParticipantMutation,
+  useDeleteParticipantMutation,
 } = participantsApi;

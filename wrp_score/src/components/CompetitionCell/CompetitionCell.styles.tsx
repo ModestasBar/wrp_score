@@ -2,7 +2,6 @@ import { Theme } from '@mui/material';
 
 export const styles = {
   box: {
-    padding: '6px 0px',
     display: 'flex',
     alignItems: 'center',
     position: 'relative',

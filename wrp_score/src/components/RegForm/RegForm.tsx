@@ -6,6 +6,7 @@ import {
 } from '../../modules/participantsApi';
 import { initialParticipant, IParticipant } from '../../dto/participant.dto';
 import { registrationFields } from './RegForm.fields';
+import { nanoid } from '@reduxjs/toolkit';
 
 export type TNewParticipant = Omit<IParticipant, 'id' | 's1' | 's2' | 's3'>;
 
@@ -17,7 +18,7 @@ const RegForm = () => {
     await registerNew({
       ...initialParticipant,
       ...participant,
-      id: Number(participantsList?.length) + 1,
+      id: nanoid(),
     });
   };
 

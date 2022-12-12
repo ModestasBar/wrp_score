@@ -86,24 +86,20 @@ const Competition = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {participants.map((participant, index: number) => {
-              console.log(participant);
-
-              return (
-                <TableRow sx={styles.tableRow} key={index}>
-                  {competitionRow(participant).map((params, index: number) => (
-                    <TableCell key={index} sx={styles.tableCell}>
-                      <CompetitionCell
-                        handleLiftLock={(lockLift) =>
-                          handleLockLift({ ...lockLift, participant })
-                        }
-                        {...params}
-                      />
-                    </TableCell>
-                  ))}
-                </TableRow>
-              );
-            })}
+            {participants.map((participant, index: number) => (
+              <TableRow sx={styles.tableRow} key={index}>
+                {competitionRow(participant).map((params, index: number) => (
+                  <TableCell key={index} sx={styles.tableCell}>
+                    <CompetitionCell
+                      handleLiftLock={(lockLift) =>
+                        handleLockLift({ ...lockLift, participant })
+                      }
+                      {...params}
+                    />
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       )}

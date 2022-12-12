@@ -19,7 +19,7 @@ const App = () => {
   return (
     <Container fixed sx={styles.mainContainer}>
       <NavBar />
-      <Box component='div' sx={{ marginTop: '75px' }}>
+      <Box component="div" sx={{ marginTop: '75px' }}>
         <Routes>
           {routes.map(({ path, element }) => (
             <Route path={path} element={element} key={path} />
