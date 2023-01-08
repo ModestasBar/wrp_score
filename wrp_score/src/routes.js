@@ -7,4 +7,3 @@ export const routes = [
   { path: '/registration', element: <Registration /> },
   { path: '/competition', element: <Competition /> },
 ];
-   
