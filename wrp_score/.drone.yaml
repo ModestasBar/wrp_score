@@ -1,0 +1,9 @@
+kind: pipeline
+name: default
+
+steps:
+- name: test
+  image: node:18-alpine
+  commands:
+  - npm install
+  - npm test
