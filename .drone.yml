@@ -1,9 +1,24 @@
 kind: pipeline
-name: default
+name: ci_pipeline
 
 steps:
-- name: test
+- name: clone_project
+  image: docker/github-actions:v1
+  commands:
+    - git clone $DRONE_REMOTE_URL
+    - cd $DRONE_REPO_NAME
+    - git checkout $DRONE_COMMIT
+- name: npm_install
+  image: node:18-alpine
+  commands: 
+    - cd $DRONE_REPO_NAME/wrp_score
+    - npm install
+  depends_on:
+    - clone_project
+- name: build
   image: node:18-alpine
   commands:
-  - npm install
-  - npm test
+    - cd $DRONE_REPO_NAME/wrp_score
+    - npm build
+  depends_on:
+    - npm_install
