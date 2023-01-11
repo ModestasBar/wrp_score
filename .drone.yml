@@ -1,8 +1,5 @@
 kind: pipeline
-name: ci_pipeline1
-platform:
-   os: windows
-   arch: amd64
+name: docker
 
 steps:
 - name: clone_project
@@ -26,4 +23,4 @@ steps:
   depends_on:
     - npm_install
     
-    
+
