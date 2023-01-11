@@ -9,14 +9,14 @@ steps:
     - cd $DRONE_REPO_NAME
     - git checkout $DRONE_COMMIT
 - name: npm_install
-  image: node:18-alpine
+  image: alkaniukas/node-18-alpine-git
   commands: 
     - cd $DRONE_REPO_NAME/wrp_score
     - npm install
   depends_on:
     - clone_project
 - name: build
-  image: node:18-alpine
+  image: alkaniukas/node-18-alpine-git
   commands:
     - cd $DRONE_REPO_NAME/wrp_score
     - npm build
