@@ -6,4 +6,5 @@ steps:
   image: node:18-alpine
   commands: 
     - echo Hello world!
+    - node --version
 
