@@ -3,6 +3,10 @@ name: docker
 
 steps:
 - name: clone_project
- 
+  image: docker/github-actions:v1
+  commands:
+    - git clone $DRONE_REMOTE_URL
+    - cd $DRONE_REPO_NAME
+    - git checkout $DRONE_COMMIT
     
 
