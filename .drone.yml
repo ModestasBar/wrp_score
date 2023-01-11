@@ -1,6 +1,7 @@
 kind: pipeline
 name: ci_pipeline1
-os: windows
+os: linux
+arch: arm64
 
 steps:
 - name: clone_project
