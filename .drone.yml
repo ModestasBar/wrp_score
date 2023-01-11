@@ -3,7 +3,7 @@ name: docker
 
 steps:
 - name: clone_project
-  image: docker/github-actions:v1
+  image: alkaniukas/node-18-alpine-git
   commands:
     - git clone $DRONE_REMOTE_URL
     - cd $DRONE_REPO_NAME
