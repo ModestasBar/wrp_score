@@ -5,5 +5,5 @@ steps:
 - name: npm_install
   image: node:18-alpine
   commands: 
-    echo 'Hello world!'
+    - echo Hello world!
 
