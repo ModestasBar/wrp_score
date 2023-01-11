@@ -1,6 +1,6 @@
 kind: pipeline
-type: docker
 name: ci_pipeline1
+os: windows
 
 steps:
 - name: clone_project
@@ -23,5 +23,4 @@ steps:
     - npm build
   depends_on:
     - npm_install
-    
     
