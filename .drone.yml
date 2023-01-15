@@ -28,7 +28,10 @@ steps:
       path: /var/run/docker.sock
   commands:
   - cd $DRONE_REPO_NAME
+  - echo $DRONE_REPO_NAME
   - docker build --pull --rm -f "Dockerfile" -t wrpscore:latest "wrp_score" --build-arg DRONE_COMMIT=$DRONE_COMMIT
+  depends_on:
+    - npm_build
 
 
 
