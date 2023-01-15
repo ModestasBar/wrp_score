@@ -5,12 +5,12 @@ steps:
 - name: npm_install
   image: node:18-alpine
   commands: 
-    - cd $DRONE_REPO_NAME/wrp_score
+    - cd $DRONE_REPO_NAME
     - npm install
 - name: build
   image: node:18-alpine
   commands:
-    - cd $DRONE_REPO_NAME/wrp_score
+    - cd $DRONE_REPO_NAME
     - npm build
   depends_on:
     - npm_install
