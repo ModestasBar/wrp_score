@@ -3,12 +3,12 @@ name: docker
 
 steps:
 - name: npm_install
-  image: node-18-alpine-git
+  image: node:18-alpine
   commands: 
     - cd $DRONE_REPO_NAME/wrp_score
     - npm install
 - name: build
-  image: node-18-alpine-git
+  image: node:18-alpine
   commands:
     - cd $DRONE_REPO_NAME/wrp_score
     - npm build
