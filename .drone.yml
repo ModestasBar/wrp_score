@@ -7,7 +7,7 @@ steps:
   commands: 
     - cd $DRONE_REPO_NAME
     - npm install
-- name: build
+- name: npm_build
   image: node:18-alpine
   commands:
     - cd $DRONE_REPO_NAME
@@ -15,6 +15,20 @@ steps:
     - npm run build
   depends_on:
     - npm_install
+- name: image_build
+  image: drone/docker
+  environment:
+    DOCKER_REGISTRY: my-registry
+    DOCKER_USERNAME:
+      from_secret: docker_username
+    DOCKER_PASSWORD:
+      from_secret: docker_password
+  volumes:
+    - name: dockersock
+      path: /var/run/docker.sock
+  commands:
+  - cd $DRONE_REPO_NAME
+  - docker build --pull --rm -f "Dockerfile" -t wrpscore:latest "wrp_score" --build-arg DRONE_COMMIT=$DRONE_COMMIT
 
 
 
