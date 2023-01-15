@@ -1,7 +1,7 @@
 import { Box, Button, Grid, TextField, MenuItem } from '@mui/material';
 import { Formik } from 'formik';
 import {
-  useGetParticipantsQuery,
+  // useGetParticipantsQuery,
   useRegisterNewParticipantMutation,
 } from '../../modules/participantsApi';
 import { initialParticipant, IParticipant } from '../../dto/participant.dto';
@@ -12,7 +12,7 @@ export type TNewParticipant = Omit<IParticipant, 'id' | 's1' | 's2' | 's3'>;
 
 const RegForm = () => {
   const [registerNew] = useRegisterNewParticipantMutation();
-  const { data: participantsList } = useGetParticipantsQuery({});
+  // const { data: participantsList } = useGetParticipantsQuery({});
 
   const onSubmit = async (participant: TNewParticipant) => {
     await registerNew({
