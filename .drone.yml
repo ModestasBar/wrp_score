@@ -16,9 +16,12 @@ steps:
 #   depends_on:
 #     - npm_install
 - name: docker  
-  image: plugins/docker
-  settings:
-    context: ./wrp_score/
+  image: drone/docker
+  volumes:
+    - name: dockersock
+      path: /var/run/docker.sock
+  commands:
+    - echo Hello
       
 
 
