@@ -21,7 +21,7 @@ steps:
     - name: dockersock
       path: /var/run/docker.sock
   commands:
-    - docker build -f wrp_score\Dockerfile -t test_image .
+    - docker build -f Dockerfile -t test_image .
       
 
     
