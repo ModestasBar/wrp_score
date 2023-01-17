@@ -1,9 +1,5 @@
 FROM node:18-alpine
 
-ARG DRONE_COMMIT
-
-ENV DRONE_COMMIT=${DRONE_COMMIT}
-
 WORKDIR /app
 
 COPY package.json .

@@ -2,25 +2,21 @@ kind: pipeline
 name: docker
 
 steps:
-- name: npm_install
-  image: node:18-alpine
-  commands: 
-    - cd $DRONE_REPO_NAME
-    - npm install
-- name: npm_build
-  image: node:18-alpine
-  commands:
-    - cd $DRONE_REPO_NAME
-    - echo $DRONE_REPO_NAME
-    - npm run build
-  # depends_on:
-  #   - npm_install
-- name: image_build
-  image: node:18-alpine
-  commands:
-    - cd $DRONE_REPO_NAME
-    - node ./scripts/build.js
-
+# - name: npm_install
+#   image: node:18-alpine
+#   commands: 
+#     - cd $DRONE_REPO_NAME
+#     - npm install
+# - name: npm_build
+#   image: node:18-alpine
+#   commands:
+#     - cd $DRONE_REPO_NAME
+#     - echo $DRONE_REPO_NAME
+#     - npm run build
+#   depends_on:
+#     - npm_install
+- name: docker  
+  image: plugins/docker
 
 
     
