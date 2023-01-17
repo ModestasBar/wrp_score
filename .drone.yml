@@ -21,7 +21,7 @@ steps:
     - name: dockersock
       path: /var/run/docker.sock
   commands:
-    - echo Hello
+    - docker build -f /$DRONE_REPO_NAME/Dockerfile -t test_image .
       
 
 
