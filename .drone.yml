@@ -18,7 +18,7 @@ steps:
 - name: docker  
   image: plugins/docker
   settings:
-    context: $DRONE_REPO_NAME/
+    context: ./wrp_score/
       
 
 
