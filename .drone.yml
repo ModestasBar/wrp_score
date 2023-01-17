@@ -17,6 +17,9 @@ steps:
 #     - npm_install
 - name: docker  
   image: plugins/docker
+  settings:
+    context: $DRONE_REPO_NAME/
+      
 
 
     
