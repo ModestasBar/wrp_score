@@ -16,7 +16,11 @@ steps:
 #   depends_on:
 #     - npm_install
 - name: docker  
-  image: plugins/docker
+  image: drone/docker
+  privileged: true
+  volumes:
+    - name: dockersock
+      path: /var/run/docker.sock
   commands:
     - docker build -f Dockerfile -t test_image .
       
