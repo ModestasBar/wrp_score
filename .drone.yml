@@ -16,7 +16,7 @@ steps:
 #   depends_on:
 #     - npm_install
 - name: docker  
-  image: drone/docker
+  image: plugins/docker
   volumes:
     - name: dockersock
       path: /var/run/docker.sock
