@@ -19,7 +19,7 @@ steps:
   image: drone/docker
   privileged: true
   volumes:
-    - name: dockersock
+    - name: docker.sock
       path: /var/run/docker.sock
   commands:
     - docker build -f Dockerfile -t test_image .
