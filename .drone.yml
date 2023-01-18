@@ -20,10 +20,11 @@ steps:
   privileged: true
   commands:
     - docker build -f Dockerfile -t test_image .
+  depends_on:
+    - npm_build
 volumes:
     - name: dockersock
       path: /var/run/docker.sock
-
       
 
     
