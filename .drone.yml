@@ -18,12 +18,15 @@ steps:
       - npm run build
     depends_on:
       - npm_install
-  - name: docker
+  - name: build_image
     image: drone/docker
     volumes:
       - name: docker-socket
         path: /var/run/docker.sock
     commands:
-      - docker build -f Dockerfile -t test_image .
+      - docker build -t wrp-score:latest .
     depends_on:
       - npm_build
+  - name: publish_image
+    image: plugins/artifactory
+    settings:
