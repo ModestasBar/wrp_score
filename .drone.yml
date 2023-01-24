@@ -21,14 +21,17 @@ steps:
     commands:
       - docker build -t wrp-score:latest .
     depends_on:
-      - npm_build
+      - build_image
   - name: build_and_publish
     image: athieriot/drone-artifactory
     settings:
-      url: http://arti.company.com
-      username: admin
+      url: https://127.0.0.1
+      username: tset
       password: password
-      pom: pom.xml
-      files:
-      - target/*.jar
-      - target/*.war
+      commands:
+        - echo $url
+     
+volumes:
+  - name: docker-socket
+    host:
+      path: /var/run/docker.sock
