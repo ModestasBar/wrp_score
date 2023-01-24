@@ -26,7 +26,7 @@ steps:
     image: athieriot/drone-artifactory
     settings:
       url: 
-        from_secret: REPO_URL
+        from_secret: ARTIFACTORY_URL
       username:
         from_secret: ARTIFACTORY_USERNAME
       password:
