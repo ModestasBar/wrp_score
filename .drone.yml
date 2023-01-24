@@ -22,7 +22,7 @@ steps:
   #     - docker build -t wrp-score:latest .
   #   depends_on:
   #     - npm_build
-  - name: Publish Docker Image to Artifactory
+  - name: build_and_publish
     image: docker/publish-image-action@v1
     settings:
       username: ${{ secrets.ARTIFACTORY_USERNAME }}
