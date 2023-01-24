@@ -21,7 +21,7 @@ steps:
     commands:
       - docker build -t wrp-score:latest .
     depends_on:
-      - build_image
+      - npm_build
   - name: build_and_publish
     image: athieriot/drone-artifactory
     settings:
