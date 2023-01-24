@@ -22,18 +22,14 @@ steps:
   #     - docker build -t wrp-score:latest .
   #   depends_on:
   #     - npm_build
-  - name: build_and_publish
-    image: athieriot/drone-artifactory
+  - name: Publish Docker Image to Artifactory
+    image: docker/publish-image-action@v1
     settings:
-      url: 
-        from_secret: ARTIFACTORY_URL
-      username:
-        from_secret: ARTIFACTORY_USERNAME
-      password:
-        from_secret: ARTIFACTORY_PASSWORD
-      target_repo: wrp-score
-      source_pattern: 
-        - ./**/*
+      username: ${{ secrets.ARTIFACTORY_USERNAME }}
+      password: ${{ secrets.ARTIFACTORY_PASSWORD }}
+      server-url: https://artifactory.example.com/artifactory/docker-local
+      image-name: myorg/myimage
+      image-tag: latest
      
 volumes:
   - name: docker-socket
