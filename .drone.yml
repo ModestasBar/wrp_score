@@ -31,9 +31,6 @@ steps:
         from_secret: ARTIFACTORY_USERNAME
       password:
         from_secret: ARTIFACTORY_PASSWORD
-      files:
-      - target/*.jar
-      - target/*.war 
      
 volumes:
   - name: docker-socket
