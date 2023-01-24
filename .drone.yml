@@ -2,30 +2,41 @@ kind: pipeline
 name: docker
 
 steps:
-- name: npm_install
-  image: node:18-alpine
-  commands: 
-    - cd $DRONE_REPO_NAME
-    - npm install
-- name: npm_build
-  image: node:18-alpine
-  commands:
-    - cd $DRONE_REPO_NAME
-    - echo $DRONE_REPO_NAME
-    - npm run build
-  depends_on:
-    - npm_install
-- name: docker  
-  image: drone/docker
-  privileged: true
-  commands:
-    - docker build -f Dockerfile -t test_image .
-  depends_on:
-    - npm_build
+  # - name: npm_install
+  #   image: node:18-alpine
+  #   commands:
+  #     - echo $DRONE_REPO_NAME
+  #     - npm install
+  # - name: npm_build
+  #   image: node:18-alpine
+  #   commands:
+  #     - npm run build
+  #   depends_on:
+  #     - npm_install
+  # - name: build_image
+  #   image: drone/docker
+  #   volumes:
+  #     - name: docker-socket
+  #       path: /var/run/docker.sock
+  #   commands:
+  #     - docker build -t wrp-score:latest .
+  #   depends_on:
+  #     - npm_build
+  - name: build_and_publish
+    image: athieriot/drone-artifactory
+    settings:
+      url: 
+        from_secret: REPO_URL
+      username:
+        from_secret: ARTIFACTORY_USERNAME
+      password:
+        from_secret: ARTIFACTORY_PASSWORD
+      files:
+      - target/*.jar
+      - target/*.war
+      - 
+     
 volumes:
-    - name: dockersock
+  - name: docker-socket
+    host:
       path: /var/run/docker.sock
-      
-
-    
-
