@@ -37,3 +37,4 @@ volumes:
   - name: docker-socket
     host:
       path: /var/run/docker.sock
+
