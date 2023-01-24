@@ -25,12 +25,9 @@ steps:
   - name: build_and_publish
     image: athieriot/drone-artifactory
     settings:
-      url: 
-        from_secret: ARTIFACTORY_URL
-      username:
-        from_secret: ARTIFACTORY_USERNAME
-      password:
-        from_secret: ARTIFACTORY_PASSWORD
+      url: https://127.0.0.1
+      username: tset
+      password: password
       commands:
         - echo $url
      
