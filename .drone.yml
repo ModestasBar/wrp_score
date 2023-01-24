@@ -28,8 +28,6 @@ steps:
       url: https://127.0.0.1
       username: tset
       password: password
-      commands:
-        - echo $url
     depends_on:
       - build_image
      
