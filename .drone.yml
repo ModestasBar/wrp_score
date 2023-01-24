@@ -25,13 +25,10 @@ steps:
   - name: build_and_publish
     image: athieriot/drone-artifactory
     settings:
-      url: https://127.0.0.1
-      username: tset
+      url: http://arti.company.com
+      username: admin
       password: password
-      commands:
-        - echo $url
-     
-volumes:
-  - name: docker-socket
-    host:
-      path: /var/run/docker.sock
+      pom: pom.xml
+      files:
+      - target/*.jar
+      - target/*.war
