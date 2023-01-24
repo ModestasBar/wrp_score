@@ -30,6 +30,8 @@ steps:
       password: password
       commands:
         - echo $url
+    depends_on:
+      - build_image
      
 volumes:
   - name: docker-socket
