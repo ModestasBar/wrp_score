@@ -22,13 +22,13 @@ steps:
   #     - docker build -t wrp-score:latest .
   #   depends_on:
   #     - npm_build
-  - name: meisterplan/jfrog-cli
-    image: node:18-alpine
+  - name: publish_image
+    image: meisterplan/jfrog-cli
     # secrets: [ ARTIFACTORY_PASSWORD, ARTIFACTORY_USERNAME, ARTIFACTORY_URL, ARTIFACTORY_REPO_KEY ]
     commands:
-      - jfrog rt config –url=$ARTIFACTORY_URL –user=$ARTIFACTORY_USERNAME –password=$ARTIFACTORY_PASSWORD
-      - jfrog rt c show'
-      - jfrog rt bp wrp-score:latest 
+      - ./jfrog rt config –url=$ARTIFACTORY_URL –user=$ARTIFACTORY_USERNAME –password=$ARTIFACTORY_PASSWORD
+      - './jfrog rt c show'
+      - ./jfrog rt bp wrp-score:latest 
 volumes:
   - name: docker-socket
     host:
