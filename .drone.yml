@@ -23,15 +23,13 @@ steps:
   #   depends_on:
   #     - npm_build
   - name: build_and_publish
-    image: athieriot/drone-artifactory
-    settings:
-      url: 
-        from_secret: REPO_URL
-      username:
-        from_secret: ARTIFACTORY_USERNAME
-      password:
-        from_secret: ARTIFACTORY_PASSWORD
-     
+    image: node:18-alpine
+    secrets: [ ARTIFACTORY_PASSWORD, ARTIFACTORY_USERNAME, ARTIFACTORY_URL, ARTIFACTORY_REPO_KEY ]
+    commands:
+      - curl -fL https://getcli.jfrog.io | sh
+      - ./jfrog rt config –url=$ARTIFACTORY_URL –user=$ARTIFACTORY_USERNAME –password=$ARTIFACTORY_PASSWORD
+      - './jfrog rt c show'
+      - ./jfrog rt bp wrp-score:latest 
 volumes:
   - name: docker-socket
     host:
