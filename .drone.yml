@@ -36,6 +36,7 @@ steps:
     commands:
       - jfrog rt login $ARTIFACTORY_URL --user $ARTIFACTORY_USERNAME --password $PASSWORD
       - jfrog rt docker-push wrp-score:latest $ARTIFACTORY_URL/$ARTIFACTORY_REPO_KEY
+      - jfrog rt logout $ARTIFACTORY_URL
 volumes:
   - name: docker-socket
     host:
