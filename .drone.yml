@@ -23,13 +23,14 @@ steps:
   #   depends_on:
   #     - npm_build
   - name: build_and_publish
-    image: docker/publish-image-action@v1
+    image: athieriot/drone-artifactory
     settings:
-      username: ${{ secrets.ARTIFACTORY_USERNAME }}
-      password: ${{ secrets.ARTIFACTORY_PASSWORD }}
-      server-url: https://artifactory.example.com/artifactory/docker-local
-      image-name: myorg/myimage
-      image-tag: latest
+      url: 
+        from_secret: REPO_URL
+      username:
+        from_secret: ARTIFACTORY_USERNAME
+      password:
+        from_secret: ARTIFACTORY_PASSWORD
      
 volumes:
   - name: docker-socket
