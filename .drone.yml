@@ -24,11 +24,16 @@ steps:
   #     - npm_build
   - name: publish_image
     image: meisterplan/jfrog-cli
+    environment:
+      USERNAME:
+        from_secret: docker_username
+      PASSWORD:
+        from_secret: docker_password
     # secrets: [ ARTIFACTORY_PASSWORD, ARTIFACTORY_USERNAME, ARTIFACTORY_URL, ARTIFACTORY_REPO_KEY ]
     commands:
-      - ./jfrog rt config –url=$ARTIFACTORY_URL –user=$ARTIFACTORY_USERNAME –password=$ARTIFACTORY_PASSWORD
-      - './jfrog rt c show'
-      - ./jfrog rt bp wrp-score:latest 
+      - jfrog rt config –url=$ARTIFACTORY_URL –user=$ARTIFACTORY_USERNAME –password=$ARTIFACTORY_PASSWORD
+      - 'jfrog rt c show'
+      - jfrog rt bp wrp-score:latest 
 volumes:
   - name: docker-socket
     host:
