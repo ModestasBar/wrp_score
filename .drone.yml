@@ -34,9 +34,8 @@ steps:
       ARTIFACTORY_REPO_KEY:
         from_secret: ARTIFACTORY_REPO_KEY
     commands:
-      - jfrog rt config –url=$ARTIFACTORY_URL –user=$ARTIFACTORY_USERNAME –password=$ARTIFACTORY_PASSWORD
-      - 'jfrog rt c show'
-      - jfrog rt bp wrp-score:latest 
+      - jfrog rt login $ARTIFACTORY_URL --user $ARTIFACTORY_USERNAME --password $PASSWORD
+      - jfrog rt docker-push wrp-score:latest $ARTIFACTORY_URL/$ARTIFACTORY_REPO_KEY
 volumes:
   - name: docker-socket
     host:
