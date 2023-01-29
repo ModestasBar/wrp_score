@@ -23,7 +23,7 @@ steps:
   #   depends_on:
   #     - npm_build
   - name: publish_image
-    image: jfrog/jfrog-cli-go
+    image: meisterplan/jfrog-cli
     environment:
       ARTIFACTORY_URL:
         from_secret: ARTIFACTORY_URL
