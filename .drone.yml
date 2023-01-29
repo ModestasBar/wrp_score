@@ -23,7 +23,7 @@ steps:
   #   depends_on:
   #     - npm_build
   - name: publish_image
-    image: meisterplan/jfrog-cli
+    image: jfrog/jfrog-cli-go
     environment:
       ARTIFACTORY_URL:
         from_secret: ARTIFACTORY_URL
@@ -34,9 +34,11 @@ steps:
       ARTIFACTORY_REPO_KEY:
         from_secret: ARTIFACTORY_REPO_KEY
     commands:
-      - jfrog rt login $ARTIFACTORY_URL --user $ARTIFACTORY_USERNAME --password $PASSWORD
-      - jfrog rt docker-push wrp-score:latest $ARTIFACTORY_URL/$ARTIFACTORY_REPO_KEY
-      - jfrog rt logout $ARTIFACTORY_URL
+      - jfrog rt config --url=$ARTIFACTORY_URL --user=$USERNAME --password=$PASSWORD
+      - jfrog rt use $ARTIFACTORY_REPO_KEY
+      - jfrog rt docker-push wrp-score:latest
+      - jfrog rt logout
+      
 volumes:
   - name: docker-socket
     host:
