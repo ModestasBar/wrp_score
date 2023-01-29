@@ -25,11 +25,14 @@ steps:
   - name: publish_image
     image: meisterplan/jfrog-cli
     environment:
-      USERNAME:
-        from_secret: docker_username
-      PASSWORD:
-        from_secret: docker_password
-    # secrets: [ ARTIFACTORY_PASSWORD, ARTIFACTORY_USERNAME, ARTIFACTORY_URL, ARTIFACTORY_REPO_KEY ]
+      ARTIFACTORY_URL:
+        from_secret: ARTIFACTORY_URL
+      ARTIFACTORY_USERNAME:
+        from_secret: ARTIFACTORY_USERNAME
+      ARTIFACTORY_PASSWORD:
+        from_secret: ARTIFACTORY_PASSWORD
+      ARTIFACTORY_REPO_KEY:
+        from_secret: ARTIFACTORY_REPO_KEY
     commands:
       - jfrog rt config –url=$ARTIFACTORY_URL –user=$ARTIFACTORY_USERNAME –password=$ARTIFACTORY_PASSWORD
       - 'jfrog rt c show'
