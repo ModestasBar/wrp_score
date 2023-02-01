@@ -48,7 +48,7 @@ steps:
       ARTIFACTORY_REPOSITORY:
         from_secret: ARTIFACTORY_REPOSITORY
     commands:
-     - echo Tag:$TAG_VERSION
+     - echo Tag:${TAG_VERSION}
      - docker login -u $ARTIFACTORY_USERNAME -p $ARTIFACTORY_ACCESS_TOKEN $ARTIFACTORY_REPOSITORY
      - docker build -t wrp-score:latest .
      - docker tag wrp-score $ARTIFACTORY_REPOSITORY/goodies-docker/wrp-score:$TAG_VERSION
