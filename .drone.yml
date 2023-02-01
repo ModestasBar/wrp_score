@@ -1,64 +1,43 @@
 kind: pipeline
-name: test
+name: docker
 
 steps:
-  - name: npm_install
-    image: node:18-alpine
-    commands:
-      - echo $DRONE_REPO_NAME
-      - npm install
-  - name: npm_build
-    image: node:18-alpine
-    commands:
-      - npm run build
-    depends_on:
-      - npm_install
-trigger:
-  branch:
-  - master
-  event:
-  - merge
-
----
-kind: pipeline
-name: deploy
-steps:
-  - name: npm_install
-    image: node:18-alpine
-    commands:
-      - echo $DRONE_REPO_NAME
-      - npm install
-  - name: npm_build
-    image: node:18-alpine
-    commands:
-      - npm run build
-    depends_on:
-      - npm_install
-  - name: publish_and_deploy
-    image: drone/docker
-    volumes:
-      - name: docker-socket
-        path: /var/run/docker.sock
+  # - name: npm_install
+  #   image: node:18-alpine
+  #   commands:
+  #     - echo $DRONE_REPO_NAME
+  #     - npm install
+  # - name: npm_build
+  #   image: node:18-alpine
+  #   commands:
+  #     - npm run build
+  #   depends_on:
+  #     - npm_install
+  # - name: build_image
+  #   image: drone/docker
+  #   volumes:
+  #     - name: docker-socket
+  #       path: /var/run/docker.sock
+  #   commands:
+  #     - docker build -t wrp-score:latest .
+  #   depends_on:
+  #     - npm_build
+  - name: publish_image
+    image: meisterplan/jfrog-cli
     environment:
+      ARTIFACTORY_URL:
+        from_secret: ARTIFACTORY_URL
       ARTIFACTORY_USERNAME:
         from_secret: ARTIFACTORY_USERNAME
-      ARTIFACTORY_ACCESS_TOKEN:
-        from_secret: ARTIFACTORY_ACCESS_TOKEN
-      ARTIFACTORY_REPOSITORY:
-        from_secret: ARTIFACTORY_REPOSITORY
-      TAG_VERSION: 
-        from_secret: TAG_VERSION
+      ARTIFACTORY_PASSWORD:
+        from_secret: ARTIFACTORY_PASSWORD
+      ARTIFACTORY_REPO_KEY:
+        from_secret: ARTIFACTORY_REPO_KEY
     commands:
-     - echo Tag:$TAG_VERSION
-     - docker login -u $ARTIFACTORY_USERNAME -p $ARTIFACTORY_ACCESS_TOKEN $ARTIFACTORY_REPOSITORY
-     - docker build -t wrp-score:latest .
-     - docker tag wrp-score $ARTIFACTORY_REPOSITORY/goodies-docker/wrp-score:$TAG_VERSION
-     - docker push $ARTIFACTORY_REPOSITORY/goodies-docker/wrp-score:v_$TAG_VERSION
-    depends_on:
-      - npm_build
-trigger:
-  event:
-    - promote
+      - jfrog rt config --url=$ARTIFACTORY_URL --user=$USERNAME --password=$PASSWORD
+      - jfrog rt use $ARTIFACTORY_REPO_KEY
+      - jfrog rt docker-push wrp-score:latest
+      - jfrog rt logout
       
 volumes:
   - name: docker-socket
