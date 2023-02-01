@@ -24,17 +24,17 @@ kind: pipeline
 name: deploy
 
 steps:
-  # - name: npm_install
-  #   image: node:18-alpine
-  #   commands:
-  #     - echo $DRONE_REPO_NAME
-  #     - npm install
-  # - name: npm_build
-  #   image: node:18-alpine
-  #   commands:
-  #     - npm run build
-  #   depends_on:
-  #     - npm_install
+  - name: npm_install
+    image: node:18-alpine
+    commands:
+      - echo $DRONE_REPO_NAME
+      - npm install
+  - name: npm_build
+    image: node:18-alpine
+    commands:
+      - npm run build
+    depends_on:
+      - npm_install
   - name: publish_and_deploy
     image: drone/docker
     volumes:
@@ -48,13 +48,13 @@ steps:
       ARTIFACTORY_REPOSITORY:
         from_secret: ARTIFACTORY_REPOSITORY
     commands:
-     - echo Tag:${TAG_VERSION}
+     - echo Tag:$TAG_VERSION
      - docker login -u $ARTIFACTORY_USERNAME -p $ARTIFACTORY_ACCESS_TOKEN $ARTIFACTORY_REPOSITORY
      - docker build -t wrp-score:latest .
-     - docker tag wrp-score $ARTIFACTORY_REPOSITORY/goodies-docker/wrp-score:$TAG_VERSION
+     - docker tag wrp-score $ARTIFACTORY_REPOSITORY/goodies-docker/wrp-score:v_$TAG_VERSION
      - docker push $ARTIFACTORY_REPOSITORY/goodies-docker/wrp-score:v_$TAG_VERSION
-    # depends_on:
-    #   - npm_build
+    depends_on:
+      - npm_build
 trigger:
   event:
     - promote
