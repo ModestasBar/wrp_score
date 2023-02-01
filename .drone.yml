@@ -13,11 +13,11 @@ steps:
       - npm run build
     depends_on:
       - npm_install
-trigger:
-  branch:
-  - master
-  event:
-  - merge
+# trigger:
+#   branch:
+#   - master
+#   event:
+#   - merge
 
 # kind: pipeline
 # name: deploy
