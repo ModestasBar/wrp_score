@@ -14,8 +14,10 @@ steps:
     depends_on:
       - npm_install
 trigger:
+   branch:
+    - main
    event:
-   - push
+   - merge
 
 # kind: pipeline
 # name: deploy
