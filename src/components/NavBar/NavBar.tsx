@@ -25,7 +25,7 @@ interface IProps {
 }
 
 export enum pageLinks {
-  HOME = 'Home12',
+  HOME = 'Home',
   REGISTRATION = 'Registration',
   COMPETITION = 'Competition',
 }
