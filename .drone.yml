@@ -49,7 +49,7 @@ steps:
     commands:
      - docker stop wrp-score
      - docker build -t wrp-score:latest .
-     - docker run -p 3005:8000 --name wrp-score -d wrp-score:latest
+     - docker start wrp-score
      
     #  Publish image
      - echo Tag:$TAG_VERSION
