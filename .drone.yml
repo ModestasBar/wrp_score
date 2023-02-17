@@ -22,7 +22,6 @@ trigger:
 ---
 kind: pipeline
 name: deploy
-
 steps:
   - name: npm_install
     image: node:18-alpine
@@ -48,9 +47,13 @@ steps:
       ARTIFACTORY_REPOSITORY:
         from_secret: ARTIFACTORY_REPOSITORY
     commands:
+     - docker stop wrp-score
+     - docker build -t wrp-score:latest .
+     - docker run -p 3005:8000 --name wrp-score -d wrp-score:latest
+     
+    #  Publish image
      - echo Tag:$TAG_VERSION
      - docker login -u $ARTIFACTORY_USERNAME -p $ARTIFACTORY_ACCESS_TOKEN $ARTIFACTORY_REPOSITORY
-     - docker build -t wrp-score:latest .
      - docker tag wrp-score $ARTIFACTORY_REPOSITORY/goodies-docker/wrp-score:v_$TAG_VERSION
      - docker push $ARTIFACTORY_REPOSITORY/goodies-docker/wrp-score:v_$TAG_VERSION
     depends_on:
